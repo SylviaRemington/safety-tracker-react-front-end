@@ -6,18 +6,18 @@ import {
   updateStory,
   deleteStory,
 } from "../../services/storiesService";
-import { getAuthors } from "../../services/authorsService";
+// import { getAuthors } from "../../services/authorsService";
 
 const StoryShow = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const [story, setStory] = useState(null);
-  const [authors, setAuthors] = useState([]);
+  // const [authors, setAuthors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
-    author: "",
-    genre: "",
-    year: "",
+    // author not needed because set up in the backend - The backend autofills the author so that the front end doesn't need it.
+    // author: "",
+    content: "",
   });
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState(null);
@@ -26,18 +26,11 @@ const StoryShow = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [authorsData, storyData] = await Promise.all([
-          getAuthors(),
-          getStoryById(id),
-        ]);
-        // const storyData = await getStoryById(id);
-        setAuthors(authorsData);
+        const storyData = await getStoryById(id);
         setStory(storyData);
         setFormData({
           title: storyData.title,
-          author: storyData.author.id,
-          genre: storyData.genre,
-          year: storyData.year,
+          content: storyData.content,
         });
       } catch (error) {
         setError(error.message);
@@ -82,38 +75,14 @@ const StoryShow = () => {
             onChange={handleChange}
           />
           <div>
-            <label htmlFor="author">Author:</label>
-            <select
-              id="author"
-              name="author"
-              value={formData.author}
+            <label htmlFor="content">Content:</label>
+            <textarea
+              id="content"
+              name="content"
+              value={formData.content}
               onChange={handleChange}
+              rows="10"
               required
-            >
-              <option value="">Select an author...</option>
-              {authors.map((author) => (
-                <option key={author.id} value={author.id}>
-                  {author.name}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="genre">Genre:</label>
-            <input
-              type="text"
-              name="genre"
-              value={formData.genre}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <label htmlFor="year">Year:</label>
-            <input
-              type="text"
-              name="year"
-              value={formData.year}
-              onChange={handleChange}
             />
           </div>
           <button type="submit">Save</button>
@@ -129,8 +98,7 @@ const StoryShow = () => {
       {error && <p>{error}</p>}
       <h1>{story?.title}</h1>
       <p>{story?.author.name}</p>
-      <p>{story?.genre}</p>
-      <p>{story?.year}</p>
+      <p>{story?.content}</p>
       {user && <button onClick={() => setIsEditing(true)}>Edit Story</button>}
     </div>
   );

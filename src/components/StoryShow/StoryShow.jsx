@@ -53,7 +53,7 @@ const StoryShow = () => {
     }
   };
 
-  const handleDeleteStory = async (event) => {
+  const handleDeleteStory = async () => {
     try {
       await deleteStory(id);
       navigate("/");

@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router";
 import NavBar from "./components/NavBar/NavBar";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import LoginForm from "./components/LoginForm/LoginForm";
-import BooksList from "./components/BooksList/BooksList";
-import BookShow from "./components/BookShow/BookShow";
-import BookCreate from "./components/BookCreate/BookCreate";
+import StoriesList from "./components/StoriesList/StoriesList";
+import StoryShow from "./components/StoryShow/StoryShow";
+import StoryCreate from "./components/StoryCreate/StoryCreate";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const App = () => {
@@ -12,15 +12,15 @@ const App = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<BooksList />} />
+        <Route path="/" element={<StoriesList />} />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/books/:id" element={<BookShow />} />
+        <Route path="/stories/:id" element={<StoryShow />} />
         <Route
-          path="/books/create"
+          path="/stories/create"
           element={
             <ProtectedRoute>
-              <BookCreate />
+              <StoryCreate />
             </ProtectedRoute>
           }
         />

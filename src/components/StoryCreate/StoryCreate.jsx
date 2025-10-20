@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import { createBook } from "../../services/booksService";
+import { createStory } from "../../services/storiesService";
 import { getAuthors } from "../../services/authorsService";
 
-const BookCreate = () => {
+const StoryCreate = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [authors, setAuthors] = useState([]);
@@ -29,7 +29,7 @@ const BookCreate = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      await createBook(formData);
+      await createStory(formData);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -38,7 +38,7 @@ const BookCreate = () => {
 
   return (
     <main>
-      <h1>Create Book</h1>
+      <h1>Create Story</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
         <div>
@@ -92,10 +92,10 @@ const BookCreate = () => {
           />
         </div>
 
-        <button type="submit">Create Book</button>
+        <button type="submit">Create Story</button>
       </form>
     </main>
   );
 };
 
-export default BookCreate;
+export default StoryCreate;

@@ -15,7 +15,7 @@ const StoryShow = () => {
   // const [authors, setAuthors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
-    // author not needed because set up in the backend - The backend autofills the author so that the front end doesn't need it.
+    // author not needed because set up in the backend - The backend autofills the author so that the front end doesn't need it here.
     // author: "",
     content: "",
   });

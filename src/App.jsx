@@ -8,9 +8,9 @@ import StoryCreate from "./components/StoryCreate/StoryCreate";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 // Importing Check-Ins components 
-import CheckInsList from "./components/CheckInsList/CheckInsList";
-import CheckInCreate from "./components/CheckInCreate/CheckInCreate";
-import CheckInShow from "./components/CheckInShow/CheckInShow";
+// import CheckInsList from "./components/CheckInsList/CheckInsList";
+// import CheckInCreate from "./components/CheckInCreate/CheckInCreate";
+// import CheckInShow from "./components/CheckInShow/CheckInShow";
 
 const App = () => {
   return (
@@ -31,7 +31,7 @@ const App = () => {
         />
 
         {/* Check-Ins functionality routes */}
-        <Route path="/check-ins" element={<CheckInsList />} />
+        {/* <Route path="/check-ins" element={<CheckInsList />} />
         <Route 
           path="/check-ins/create" 
           element={
@@ -40,7 +40,7 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        <Route path="/check-ins/:id" element={<CheckInShow />} />
+        <Route path="/check-ins/:id" element={<CheckInShow />} /> */}
 
         <Route
           path="*"

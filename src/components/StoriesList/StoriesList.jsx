@@ -17,10 +17,10 @@ const StoriesList = () => {
 
   return (
     <main>
-      <h1>Welcome to Community Support with Stories From People Like You!</h1>
+      <h1>Welcome to Stories From People Like You</h1>
       <p>Feel free to explore our stories & articles...</p>
       <p>...AND...</p>
-      <p>Feel free to explore shared tips...</p>
+      <p>We have so many shared experiences & wellbeing tips in this Community Support Area.</p>
       <ul>
         {stories.map((story, index) => (
           <li key={story.id}>

@@ -17,8 +17,8 @@ const StoriesList = () => {
 
   return (
     <main>
-      <h1>Welcome to The Dusty Shelf</h1>
-      <p>Feel free to explore our library...</p>
+      <h1>Welcome to stories from people like you!</h1>
+      <p>Feel free to explore our stories & articles...</p>
       <ul>
         {stories.map((story, index) => (
           <li key={story.id}>

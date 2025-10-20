@@ -1,7 +1,7 @@
 import axios from "./axiosConfig";
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/books`;
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/stories`;
 
-const getBooks = async () => {
+const getStories = async () => {
   try {
     const res = await axios.get(`${BASE_URL}/`);
     return res.data;
@@ -11,7 +11,7 @@ const getBooks = async () => {
   }
 };
 
-const getBookById = async (id) => {
+const getStoryById = async (id) => {
   try {
     const res = await axios.get(`${BASE_URL}/${id}/`);
     return res.data;
@@ -21,9 +21,9 @@ const getBookById = async (id) => {
   }
 };
 
-const updateBook = async (id, book) => {
+const updateStory = async (id, story) => {
   try {
-    const res = await axios.put(`${BASE_URL}/${id}/`, book);
+    const res = await axios.put(`${BASE_URL}/${id}/`, story);
     const data = await res.data;
     return data;
   } catch (error) {
@@ -32,7 +32,7 @@ const updateBook = async (id, book) => {
   }
 };
 
-const deleteBook = async (id) => {
+const deleteStory = async (id) => {
   try {
     await axios.delete(`${BASE_URL}/${id}/`);
   } catch (error) {
@@ -41,9 +41,9 @@ const deleteBook = async (id) => {
   }
 };
 
-const createBook = async (book) => {
+const createStory = async (story) => {
   try {
-    const res = await axios.post(`${BASE_URL}/`, book);
+    const res = await axios.post(`${BASE_URL}/`, story);
     const data = await res.data;
     return data;
   } catch (error) {
@@ -52,4 +52,5 @@ const createBook = async (book) => {
   }
 };
 
-export { getBooks, getBookById, updateBook, deleteBook, createBook };
+export { getStories, getStoryById, updateStory, deleteStory, createStory };
+

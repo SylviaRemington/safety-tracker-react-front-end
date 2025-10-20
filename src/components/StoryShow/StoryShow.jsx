@@ -2,16 +2,16 @@ import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useParams, useNavigate } from "react-router";
 import {
-  getBookById,
-  updateBook,
-  deleteBook,
-} from "../../services/booksService";
+  getStoryById,
+  updateStory,
+  deleteStory,
+} from "../../services/storiesService";
 import { getAuthors } from "../../services/authorsService";
 
-const BookShow = () => {
+const StoryShow = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
-  const [book, setBook] = useState(null);
+  const [story, setStory] = useState(null);
   const [authors, setAuthors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
@@ -26,18 +26,18 @@ const BookShow = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [authorsData, bookData] = await Promise.all([
+        const [authorsData, storyData] = await Promise.all([
           getAuthors(),
-          getBookById(id),
+          getStoryById(id),
         ]);
-        // const bookData = await getBookById(id);
+        // const storyData = await getStoryById(id);
         setAuthors(authorsData);
-        setBook(bookData);
+        setStory(storyData);
         setFormData({
-          title: bookData.title,
-          author: bookData.author.id,
-          genre: bookData.genre,
-          year: bookData.year,
+          title: storyData.title,
+          author: storyData.author.id,
+          genre: storyData.genre,
+          year: storyData.year,
         });
       } catch (error) {
         setError(error.message);
@@ -50,19 +50,19 @@ const BookShow = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleEditBook = async (event) => {
+  const handleEditStory = async (event) => {
     event.preventDefault();
     try {
-      await updateBook(id, formData);
+      await updateStory(id, formData);
       setIsEditing(false);
     } catch (error) {
       setError(error.message);
     }
   };
 
-  const handleDeleteBook = async (event) => {
+  const handleDeleteStory = async (event) => {
     try {
-      await deleteBook(id);
+      await deleteStory(id);
       navigate("/");
     } catch (error) {
       setError(error.message);
@@ -72,8 +72,8 @@ const BookShow = () => {
   if (isEditing) {
     return (
       <div>
-        <h2>Edit Book</h2>
-        <form onSubmit={handleEditBook}>
+        <h2>Edit Story</h2>
+        <form onSubmit={handleEditStory}>
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -119,7 +119,7 @@ const BookShow = () => {
           <button type="submit">Save</button>
         </form>
         <button onClick={() => setIsEditing(false)}>Cancel</button>
-        <button onClick={handleDeleteBook}>Delete</button>
+        <button onClick={handleDeleteStory}>Delete</button>
       </div>
     );
   }
@@ -127,13 +127,13 @@ const BookShow = () => {
   return (
     <div>
       {error && <p>{error}</p>}
-      <h1>{book?.title}</h1>
-      <p>{book?.author.name}</p>
-      <p>{book?.genre}</p>
-      <p>{book?.year}</p>
-      {user && <button onClick={() => setIsEditing(true)}>Edit Book</button>}
+      <h1>{story?.title}</h1>
+      <p>{story?.author.name}</p>
+      <p>{story?.genre}</p>
+      <p>{story?.year}</p>
+      {user && <button onClick={() => setIsEditing(true)}>Edit Story</button>}
     </div>
   );
 };
 
-export default BookShow;
+export default StoryShow;

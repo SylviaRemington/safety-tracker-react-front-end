@@ -13,7 +13,7 @@ const StoriesList = () => {
     fetchStories();
   }, []);
 
-  console.log(`Stories`, stories);
+  // console.log(`Stories`, stories);
 
   return (
     <main>
@@ -41,4 +41,4 @@ const StoriesList = () => {
 
 export default StoriesList;
 
-// Updated src components StoriesList StoriesList.jsx
+// Updated src components StoriesList StoriesList.jsx 

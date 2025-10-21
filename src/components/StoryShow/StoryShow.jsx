@@ -9,6 +9,7 @@ import {
 } from "../../services/storiesService";
 // import { getAuthors } from "../../services/authorsService";
 
+// Starts the StoryShow page
 const StoryShow = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
@@ -23,7 +24,7 @@ const StoryShow = () => {
   const [error, setError] = useState(null);
   const { id } = useParams();
 
-  // useEffect section
+  // useEffect section - loads Story Section - Gets story from backend when page opens
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,11 +42,12 @@ const StoryShow = () => {
     fetchData();
   }, [id, isEditing]);
 
-  // handleChange section
+  // handleChange section - handles adding input and whatever is typed in form boxes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
+  // Saves changes/updates to Story
   const handleEditStory = async (event) => {
     event.preventDefault();
     try {
@@ -56,6 +58,7 @@ const StoryShow = () => {
     }
   };
 
+  // Deletes Story
   const handleDeleteStory = async () => {
     try {
       await deleteStory(id);
@@ -65,11 +68,13 @@ const StoryShow = () => {
     }
   };
 
+  // Editing Form Section
   if (isEditing) {
     return (
       <div>
         <h2>Edit Story</h2>
         <form onSubmit={handleEditStory}>
+          {/* Title Input Section - Box for story title */}
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -78,7 +83,7 @@ const StoryShow = () => {
             onChange={handleChange}
           />
 
-          {/* Author Input Section */}
+          {/* Author Input Section - box for the author's name */}
           <div>
             <label htmlFor="author">Author:</label>
             <input
@@ -91,8 +96,7 @@ const StoryShow = () => {
             />
           </div>
 
-
-
+          {/* {/* Body Text Section - Main Section of Story */} 
           <div>
             <label htmlFor="content">Content:</label>
             <textarea
@@ -104,6 +108,7 @@ const StoryShow = () => {
               required
             />
           </div>
+          {/* Submit Save Button Section */}
           <button type="submit">Save</button>
         </form>
         <button onClick={() => setIsEditing(false)}>Cancel</button>
@@ -114,10 +119,15 @@ const StoryShow = () => {
 
   return (
     <div>
+      {/* Shows error if there are any errors. */}
       {error && <p>{error}</p>}
+      {/* Shows story title */}
       <h1>{story?.title}</h1>
+      {/* Shows author's name */}
       <p>{story?.author.name}</p>
+      {/* Shows the main content */}
       <p>{story?.content}</p>
+      {/* Shows Edit Button if logged in */}
       {user && <button onClick={() => setIsEditing(true)}>Edit Story</button>}
     </div>
   );

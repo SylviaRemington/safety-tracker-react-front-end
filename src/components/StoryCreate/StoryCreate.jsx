@@ -1,30 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { createStory } from "../../services/storiesService";
-import { getAuthors } from "../../services/authorsService";
+// import { getAuthors } from "../../services/authorsService";
 
 const StoryCreate = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
-  const [authors, setAuthors] = useState([]);
+  // const [error, setError] = useState("");
+  // const [authors, setAuthors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     author: "",
-    genre: "",
-    year: "",
+    content: "",
   });
+
+  // for error messages
+  const [error, setError] = useState("");
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  useEffect(() => {
-    const fetchAuthors = async () => {
-      const authors = await getAuthors();
-      setAuthors(authors);
-    };
-    fetchAuthors();
-  }, []);
+  // useEffect(() => {
+  //   const fetchAuthors = async () => {
+  //     const authors = await getAuthors();
+  //     setAuthors(authors);
+  //   };
+  //   fetchAuthors();
+  // }, []);
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
@@ -54,40 +56,23 @@ const StoryCreate = () => {
         </div>
         <div>
           <label htmlFor="author">Author:</label>
-          <select
+          <input
+            type="text"
             id="author"
             name="author"
             value={formData.author}
             onChange={handleChange}
             required
-          >
-            <option value="">Select an author...</option>
-            {authors.map((author) => (
-              <option key={author.id} value={author.id}>
-                {author.name}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div>
-          <label htmlFor="genre">Genre:</label>
-          <input
-            type="text"
-            id="genre"
-            name="genre"
-            value={formData.genre}
-            onChange={handleChange}
-            required
           />
         </div>
         <div>
-          <label htmlFor="year">Year:</label>
-          <input
-            type="number"
-            id="year"
-            name="year"
-            value={formData.year}
+          <label htmlFor="content">Content:</label>
+          <textarea
+            id="content"
+            name="content"
+            value={formData.content}
             onChange={handleChange}
+            rows="10"
             required
           />
         </div>

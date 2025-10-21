@@ -13,7 +13,7 @@ const StoriesList = () => {
     fetchStories();
   }, []);
 
-  // console.log(`Stories`, stories);
+  console.log(`Stories`, stories);
 
   return (
     <main>

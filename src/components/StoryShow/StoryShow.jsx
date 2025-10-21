@@ -47,7 +47,7 @@ const StoryShow = () => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  // Saves changes/updates to Story
+  // Saves changes/updates to Story when person clicks on save
   const handleEditStory = async (event) => {
     event.preventDefault();
     try {
@@ -58,7 +58,7 @@ const StoryShow = () => {
     }
   };
 
-  // Deletes Story
+  // Deletes Story when person clicks on delete
   const handleDeleteStory = async () => {
     try {
       await deleteStory(id);
@@ -68,13 +68,13 @@ const StoryShow = () => {
     }
   };
 
-  // Editing Form Section
+  // Editing Form Section - the form that shows up when clicking the edit section
   if (isEditing) {
     return (
       <div>
         <h2>Edit Story</h2>
         <form onSubmit={handleEditStory}>
-          {/* Title Input Section - Box for story title */}
+          {/* Story Title - box that shows up for that */}
           <label htmlFor="title">Title:</label>
           <input
             type="text"
@@ -83,7 +83,7 @@ const StoryShow = () => {
             onChange={handleChange}
           />
 
-          {/* Author Input Section - box for the author's name */}
+          {/* Author's Name - box that shows up for that */}
           <div>
             <label htmlFor="author">Author:</label>
             <input
@@ -96,7 +96,7 @@ const StoryShow = () => {
             />
           </div>
 
-          {/* {/* Body Text Section - Main Section of Story */} 
+          {/* {/* Body Text Section - Main Section of Story - big box for the story text */} 
           <div>
             <label htmlFor="content">Content:</label>
             <textarea
@@ -108,7 +108,7 @@ const StoryShow = () => {
               required
             />
           </div>
-          {/* Submit Save Button Section */}
+          {/* Save Button Section */}
           <button type="submit">Save</button>
         </form>
         <button onClick={() => setIsEditing(false)}>Cancel</button>

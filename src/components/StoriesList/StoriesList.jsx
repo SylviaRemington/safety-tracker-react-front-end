@@ -29,8 +29,9 @@ const StoriesList = () => {
                 {index + 1}. {story.title}
               </p>
               {/* Going to show first 100 chars of content as preview for a kind of taster. */}
-              <p>{story.content.substring(0, 100)}...</p>
+              {/* <p>{story.content.substring(0, 100)}...</p> */}
               <p>By: {story.author.name}</p>
+              <p>Content: {story.content}</p>
             </Link>
           </li>
         ))}

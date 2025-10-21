@@ -1,3 +1,4 @@
+// Imports
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { useParams, useNavigate } from "react-router";
@@ -15,14 +16,14 @@ const StoryShow = () => {
   // const [authors, setAuthors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
-    // author not needed because set up in the backend - The backend autofills the author so that the front end doesn't need it here.
-    // author: "",
+    author: "",
     content: "",
   });
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState(null);
   const { id } = useParams();
 
+  // useEffect section
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -30,6 +31,7 @@ const StoryShow = () => {
         setStory(storyData);
         setFormData({
           title: storyData.title,
+          author: storyData.author.name,
           content: storyData.content,
         });
       } catch (error) {
@@ -39,6 +41,7 @@ const StoryShow = () => {
     fetchData();
   }, [id, isEditing]);
 
+  // handleChange section
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
@@ -74,6 +77,22 @@ const StoryShow = () => {
             value={formData.title}
             onChange={handleChange}
           />
+
+          {/* Author Input Section */}
+          <div>
+            <label htmlFor="author">Author:</label>
+            <input
+              type="text"
+              id="author"
+              name="author"
+              value={formData.author}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+
+
           <div>
             <label htmlFor="content">Content:</label>
             <textarea

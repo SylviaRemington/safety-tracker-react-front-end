@@ -44,9 +44,26 @@ const deleteStory = async (id) => {
 };
 
 // Create story (auth, adds owner)
+// const createStory = async (story) => {
+//   try {
+//     const res = await axios.post(`${BASE_URL}/`, story);
+//     return res.data;
+//   } catch (error) {
+//     console.log(error);
+//     throw error;
+//   }
+// };
+
 const createStory = async (story) => {
   try {
-    const res = await axios.post(`${BASE_URL}/`, story);
+    // ➡️ Send story with author name as string, no author creation
+    const storyData = {
+      title: story.title,
+      content: story.content,
+      author: story.author  // Send name directly
+    };
+    // ➡️ Add trailing slash to match backend
+    const res = await axios.post(`${BASE_URL}/`, storyData);
     return res.data;
   } catch (error) {
     console.log(error);
@@ -55,4 +72,5 @@ const createStory = async (story) => {
 };
 
 export { getStories, getStoryById, updateStory, deleteStory, createStory };
+
 

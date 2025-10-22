@@ -108,8 +108,17 @@ const StoryShow = () => {
     }
   };
 
+  // Showing if loading or there's an error
+  // Doing a loading check
+  if (loading) { 
+    return <div>Loading story...</div>;
+  }
+  // error message and return
+  if (error) { 
+    return <div>{error}</div>;
+  }
+
   // Editing Form Section - the form that shows up when clicking the edit section
-  
   if (isEditing) {
     return (
       <div>
@@ -122,18 +131,35 @@ const StoryShow = () => {
             name="title"
             value={formData.title}
             onChange={handleChange}
+            required // making sure the title shows up
           />
 
-          {/* Author's Name - box that shows up for that */}
+          {/* Author's Name / Author Selection - box that shows up for that */}
           <div>
             <label htmlFor="author">Author:</label>
-            <input
-              type="text"
+            {/* select changes it to a dropdown */}
+            <select 
               id="author"
               name="author"
               value={formData.author}
               onChange={handleChange}
-              required
+            >
+              {/* dropdown menu */}
+              <option value="">Select or type new author</option>  
+              {authors.map((author) => (
+                // using the id as a string
+                <option key={author.id} value={String(author.id)}> 
+                  {author.name}
+                </option>
+              ))}
+            </select>
+            {/* input button if want to add a new author */}
+            <input 
+              type="text"
+              placeholder="Or type new author name"
+              name="author"
+              value={formData.author === "" || isNaN(parseInt(formData.author)) ? formData.author : ""}
+              onChange={handleChange}
             />
           </div>
 
@@ -158,12 +184,13 @@ const StoryShow = () => {
     );
   }
 
+  // showing story details
   return (
     <div>
-      {/* Shows error if there are any errors. */}
+      {/* showing an error if there are any errors */}
       {error && <p>{error}</p>}
-      {/* Shows story title */}
-      <h1>{story?.title}</h1>
+      {/* showing story title or no title if nothing is put down */}
+      <h1>{story?.title || "No title available"}</h1>
       {/* Shows author's name */}
       <p>{story?.author.name}</p>
       {/* Shows the main content */}

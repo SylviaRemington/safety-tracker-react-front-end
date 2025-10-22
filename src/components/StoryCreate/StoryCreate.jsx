@@ -1,17 +1,33 @@
-import { useState } from "react";
+// import tools needed
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { createStory } from "../../services/storiesService";
+import { getAuthors } from "../../services/authorsService"; // added so can get authors that already have & already are created
+import axios from "../../services/axiosConfig"; // added for creating new authors
 
 // StoryCreate page - creates/starts it
 const StoryCreate = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     title: "",
-    author: "",
+    author: "", // can use this for either selected id or new author name
     content: "",
   });
-  // for error messages
+  const [authors, setAuthors] = useState([]); //storing save authors
   const [error, setError] = useState("");
+
+  // useEffect - getting/fetching authors when page loads
+  useEffect(() => { // 
+    const fetchAuthors = async () => {
+      try {
+        const authorsData = await getAuthors();
+        setAuthors(authorsData);
+      } catch (error) {
+        setError("Failed to load authors.");
+      }
+    };
+    fetchAuthors();
+  }, []);
 
   // handles typing in form boxes
   const handleChange = (event) => {
@@ -22,14 +38,28 @@ const StoryCreate = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      await createStory(formData);
+      // checking if author is an ID or new name
+      let authorId = formData.author; // first, check if it's an ID from the form
+      if (!formData.author || isNaN(formData.author)) { // if it's a new author - this is for handling new author
+        const response = await axios.post(
+          `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
+          { name: formData.author || "Unknown Author" }
+        );
+        authorId = response.data.id; // gets new author id here if new
+      }
+      // sending story with author ID
+      await createStory({
+        title: formData.title,
+        content: formData.content,
+        authorId, // using author id instead of author
+      });
       navigate("/");
     } catch (error) {
       setError(error.message);
     }
   };
 
-  // returning/creating the form section
+  // returning - creating the form section
   return (
     <main>
       <h1>Create Story</h1>
@@ -48,13 +78,27 @@ const StoryCreate = () => {
         </div>
         <div>
           <label htmlFor="author">Author:</label>
-          <input
-            type="text"
+          <select // using dropdown vs just input field
             id="author"
             name="author"
             value={formData.author}
             onChange={handleChange}
-            required
+          >
+            {/* dropdown option */}
+            <option value="">Select or type new author</option> 
+            {authors.map((author) => (
+              // for showing author ids
+              <option key={author.id} value={author.id}> 
+                {author.name}
+              </option>
+            ))}
+          </select>
+          <input // input for new authors name
+            type="text"
+            placeholder="Or type new author name"
+            name="author"
+            value={formData.author === "" || isNaN(formData.author) ? formData.author : ""}
+            onChange={handleChange}
           />
         </div>
         <div>

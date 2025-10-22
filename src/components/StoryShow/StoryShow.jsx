@@ -7,36 +7,49 @@ import {
   updateStory,
   deleteStory,
 } from "../../services/storiesService";
-// import { getAuthors } from "../../services/authorsService";
+// for fetching authors
+import { getAuthors } from "../../services/authorsService";
+// for creating a new author
+import axios from "../../services/axiosConfig";
 
 // Starts the StoryShow page
 const StoryShow = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const [story, setStory] = useState(null);
-  // const [authors, setAuthors] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     author: "",
     content: "",
   });
+  const [authors, setAuthors] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState(null);
+  // tracking loading below
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   // useEffect section - loads Story Section - Gets story from backend when page opens
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const storyData = await getStoryById(id);
+        const [storyData, authorsData] = await Promise.all([ // <--- Fetch both
+          getStoryById(id),
+          getAuthors()
+        ]);
         setStory(storyData);
+        setAuthors(authorsData);
         setFormData({
           title: storyData.title,
-          author: storyData.author.name,
+          // using author id as a string for form
+          author: String(storyData.author.id), 
           content: storyData.content,
         });
       } catch (error) {
-        setError(error.message);
+        setError("Failed to load story or authors.");
+      } finally {
+        // done fetching the info
+        setLoading(false);
       }
     };
     fetchData();
@@ -51,10 +64,37 @@ const StoryShow = () => {
   const handleEditStory = async (event) => {
     event.preventDefault();
     try {
-      await updateStory(id, formData);
+      // making sure that authorId is a number
+      // converting it to a number
+      let authorId = parseInt(formData.author); 
+      // creating a new author if it's not an id
+      if (isNaN(authorId)) { 
+        const response = await axios.post(
+          `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
+          { name: formData.author || "Unknown Author" }
+        );
+        // getting a new author id
+        authorId = response.data.id; 
+      }
+      // sending update with the correct authorId
+      await updateStory(id, {
+        title: formData.title,
+        content: formData.content,
+        authorId // <--- Send as authorId
+      });
       setIsEditing(false);
+      // adding to refresh the story info
+      const updatedStory = await getStoryById(id); 
+      // updating the state
+      setStory(updatedStory); 
+      setFormData({
+        title: updatedStory.title,
+        // string for the form
+        author: String(updatedStory.author.id), 
+        content: updatedStory.content,
+      });
     } catch (error) {
-      setError(error.message);
+      setError("Failed to update story: " + error.message); 
     }
   };
 
@@ -64,11 +104,12 @@ const StoryShow = () => {
       await deleteStory(id);
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      setError("Failed to delete story: " + error.message); 
     }
   };
 
   // Editing Form Section - the form that shows up when clicking the edit section
+  
   if (isEditing) {
     return (
       <div>

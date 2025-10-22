@@ -26,7 +26,12 @@ const getStoryById = async (id) => {
 // Update story (auth, owner only)
 const updateStory = async (id, story) => {
   try {
-    const res = await axios.put(`${BASE_URL}/${id}/`, story);
+    const storyData = {
+      title: story.title,
+      author: story.authorId,  // <--- THIS IS THE ONLY CHANGE
+      content: story.content,
+    };
+    const res = await axios.put(`${BASE_URL}/${id}/`, storyData);
     return res.data;
   } catch (error) {
     console.log(error);

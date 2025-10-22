@@ -44,26 +44,15 @@ const deleteStory = async (id) => {
 };
 
 // Create story (auth, adds owner)
-// const createStory = async (story) => {
-//   try {
-//     const res = await axios.post(`${BASE_URL}/`, story);
-//     return res.data;
-//   } catch (error) {
-//     console.log(error);
-//     throw error;
-//   }
-// };
-
 const createStory = async (story) => {
   try {
-    // ➡️ Send story with author name as string, no author creation
+    // Sending story with author ID
     const storyData = {
       title: story.title,
+      author: story.authorId, // changing this from author to authorId to correct 422 error
       content: story.content,
-      author: story.author  // Send name directly
     };
-    // ➡️ Add trailing slash to match backend
-    const res = await axios.post(`${BASE_URL}/`, storyData);
+    const res = await axios.post(`${BASE_URL}/`, storyData); // removing trailing slash comment to correct 422 error
     return res.data;
   } catch (error) {
     console.log(error);

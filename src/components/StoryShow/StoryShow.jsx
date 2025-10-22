@@ -191,12 +191,17 @@ const StoryShow = () => {
       {error && <p>{error}</p>}
       {/* showing story title or no title if nothing is put down */}
       <h1>{story?.title || "No title available"}</h1>
-      {/* Shows author's name */}
-      <p>{story?.author.name}</p>
-      {/* Shows the main content */}
-      <p>{story?.content}</p>
-      {/* Shows Edit Button if logged in */}
-      {user && <button onClick={() => setIsEditing(true)}>Edit Story</button>}
+      {/* showing author's name or unknown author if none is given */}
+      <p>By: {story?.author?.name || "Unknown Author"}</p>
+      {/* showing the main content/story body */}
+      <p>{story?.content || "No content or story available. Check back soon."}</p>
+      {/* showing Edit/Delete Buttons if the user is logged in and is an owner */}
+      {user && user.id === story.owner.id && ( // <--- Added owner check
+        <>
+          <button onClick={() => setIsEditing(true)}>Edit Story</button>
+          <button onClick={handleDeleteStory}>Delete Story</button>
+        </>
+      )}
     </div>
   );
 };

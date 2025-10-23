@@ -61,7 +61,7 @@ const StoryShow = () => {
   };
 
   // ! TROUBLESHOOTING HANDLE EDIT STORY SINCE EDIT FUNCTIONALITY IS SHOWING A 422 ERROR
-  // ! WILL START BACK HERE IN THE MORNING
+  // ! Now Create is not longer working... gahhhhh....
   // Saves changes/updates to Story when person clicks on save
   const handleEditStory = async (event) => {
     event.preventDefault();

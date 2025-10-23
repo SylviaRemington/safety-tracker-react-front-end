@@ -28,7 +28,7 @@ const updateStory = async (id, story) => {
   try {
     const storyData = {
       title: story.title,
-      author: story.authorId,  // <--- THIS IS THE ONLY CHANGE
+      author: story.authorId,  
       content: story.content,
     };
     const res = await axios.put(`${BASE_URL}/${id}/`, storyData);

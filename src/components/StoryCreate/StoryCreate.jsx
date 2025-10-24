@@ -71,13 +71,13 @@ const StoryCreate = () => {
 
   // returning - creating the form section
   return (
-    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0', padding: '20px' }}>
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: '12px',
-        padding: '30px',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
-      }}>
+      <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          borderRadius: '12px',
+          padding: '30px',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
+        }}>
         <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Create Story</h1>
         {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px' }}>{error}</p>}
         

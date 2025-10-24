@@ -70,23 +70,27 @@ const StoryShow = () => {
     event.preventDefault();
     try {
       setError(null);
-      // making sure that authorId is a number
-      // converting it to a number
-      let authorId = parseInt(formData.author); 
-      // creating a new author if it's not an id
-      if (isNaN(authorId) || !formData.author) { 
-        // Check if user typed a new author name
-        if (formData.newAuthor && formData.newAuthor.trim()) {
-          const response = await axios.post(
-            `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
-            { name: formData.newAuthor.trim() }
-          );
-          // getting a new author id
-          authorId = response.data.id; 
-        } else {
-          setError("Please select an author or enter a new author name");
-          return;
-        }
+      let authorId;
+      
+      // Check if user typed a new author name (prioritize this)
+      if (formData.newAuthor && formData.newAuthor.trim()) {
+        console.log("Creating new author:", formData.newAuthor.trim());
+        const response = await axios.post(
+          `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
+          { name: formData.newAuthor.trim() }
+        );
+        authorId = response.data.id; 
+        console.log("New author created with ID:", authorId);
+      } 
+      // Otherwise, use the selected author from dropdown
+      else if (formData.author && formData.author !== "") {
+        authorId = parseInt(formData.author);
+        console.log("Using existing author ID:", authorId);
+      } 
+      // If neither, show error
+      else {
+        setError("Please select an author or enter a new author name");
+        return;
       }
       // sending update with the correct authorId
       await updateStory(id, {
@@ -136,72 +140,84 @@ const StoryShow = () => {
   // Editing Form Section - the form that shows up when clicking the edit section
   if (isEditing) {
     return (
-      <div>
-        <h2>Edit Story</h2>
-        <form onSubmit={handleEditStory}>
-          {/* Story Title - box that shows up for that */}
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required // making sure the title shows up
-          />
+      <div style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
+        <div style={{
+          background: 'rgba(255, 255, 255, 0.1)',
+          borderRadius: '12px',
+          padding: '30px',
+          border: '1px solid rgba(255, 255, 255, 0.2)'
+        }}>
+          <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Edit Story</h2>
+          <form onSubmit={handleEditStory} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+            {/* Story Title - box that shows up for that */}
+            <div>
+              <label htmlFor="title" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Title:</label>
+              <input
+                type="text"
+                name="title"
+                value={formData.title}
+                onChange={handleChange}
+                required
+                style={{ width: '100%' }}
+              />
+            </div>
 
-          {/* Author's Name / Author Selection - box that shows up for that */}
-          <div>
-            <label htmlFor="author">Author:</label>
-            {/* select changes it to a dropdown */}
-            <select 
-              id="author"
-              name="author"
-              value={formData.author}
-              onChange={handleChange}
-            >
-              {/* dropdown menu */}
-              <option value="">Select or type new author</option>  
-              {authors.map((author) => (
-                // using the id as a string
-                <option key={author.id} value={String(author.id)}> 
-                  {author.name}
-                </option>
-              ))}
-            </select>
-            {/* input button if want to add a new author */}
-            <input 
-              type="text"
-              placeholder="Or type new author name"
-              name="newAuthor"
-              value={formData.newAuthor || ""}
-              onChange={handleChange}
-            />
-          </div>
+            {/* Author's Name / Author Selection - box that shows up for that */}
+            <div>
+              <label htmlFor="author" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Author:</label>
+              <select 
+                id="author"
+                name="author"
+                value={formData.author}
+                onChange={handleChange}
+                style={{ width: '100%', marginBottom: '10px' }}
+              >
+                <option value="">Select or type new author</option>  
+                {authors.map((author) => (
+                  <option key={author.id} value={String(author.id)}> 
+                    {author.name}
+                  </option>
+                ))}
+              </select>
+              <input 
+                type="text"
+                placeholder="Or type new author name"
+                name="newAuthor"
+                value={formData.newAuthor || ""}
+                onChange={handleChange}
+                style={{ width: '100%' }}
+              />
+            </div>
 
-          {/* {/* Body Text Section - Main Section of Story - big box for the story text */} 
-          <div>
-            <label htmlFor="content">Content:</label>
-            <textarea
-              id="content"
-              name="content"
-              value={formData.content}
-              onChange={handleChange}
-              rows="10"
-              required
-            />
-          </div>
-          {/* Save Button Section */}
-          <button type="submit">Save</button>
-        </form>
-        <button onClick={() => setIsEditing(false)}>Cancel</button>
-        <button onClick={handleDeleteStory}>Delete</button>
+            {/* Body Text Section - Main Section of Story - big box for the story text */} 
+            <div>
+              <label htmlFor="content" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Content:</label>
+              <textarea
+                id="content"
+                name="content"
+                value={formData.content}
+                onChange={handleChange}
+                rows="10"
+                required
+                style={{ width: '100%' }}
+              />
+            </div>
+            
+            {/* Save Button Section */}
+            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+              <button type="submit">Save</button>
+              <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
+              <button type="button" onClick={handleDeleteStory}>Delete</button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
 
   // showing story details
   return (
-    <div style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0', padding: '20px' }}>
+      <div style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
       {/* showing an error if there are any errors */}
       {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px' }}>{error}</p>}
       

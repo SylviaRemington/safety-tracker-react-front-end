@@ -68,7 +68,7 @@ const StoriesList = () => {
   }
 
   return (
-    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0', padding: '20px' }}>
+      <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Welcome to Stories From People Like You</h1>
       <p style={{ textAlign: 'center', marginBottom: '30px', opacity: 0.8 }}>Feel free to explore our stories & articles...</p>
       <p style={{ textAlign: 'center', marginBottom: '30px', opacity: 0.8 }}>...AND...</p>

@@ -53,7 +53,7 @@ const StoriesList = () => {
                 {/* Going to show first 100 chars of content as preview for a kind of taster. */}
                 {/* <p>{story.content.substring(0, 100)}...</p> */}
                 <p>By: {story.author?.name || "Unknown Author"}</p>
-                <p>Content: {story.content || "No content available"}</p>
+                <div style={{ whiteSpace: 'pre-wrap' }}>Content: {story.content || "No content available"}</div>
               </Link>
             </li>
           ))}

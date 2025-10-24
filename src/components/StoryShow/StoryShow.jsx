@@ -218,7 +218,9 @@ const StoryShow = () => {
       {/* showing author's name or unknown author if none is given */}
       <p>By: {story?.author?.name || "Unknown Author"}</p>
       {/* showing the main content/story body */}
-      <p>{story?.content || "No content or story available. Check back soon."}</p>
+      <div style={{ whiteSpace: 'pre-wrap' }}>
+        {story?.content || "No content or story available. Check back soon."}
+      </div>
       {/* showing Edit/Delete Buttons if the user is logged in and is an owner */}
       {user && story?.owner && user.id === story.owner.id && ( // <--- Added owner check with null safety
         <>

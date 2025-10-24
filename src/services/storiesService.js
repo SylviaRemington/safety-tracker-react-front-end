@@ -30,14 +30,18 @@ const updateStory = async (id, story) => {
       title: story.title,
       author: story.authorId,  // Send author ID directly
       content: story.content,
+      owner: story.ownerId,  // Add owner field
     };
     console.log("Sending update data:", storyData); // Debug log
     console.log("Author ID type:", typeof story.authorId, "Value:", story.authorId); // Debug log
+    console.log("Story ID:", id); // Debug log
     const res = await axios.put(`${BASE_URL}/${id}/`, storyData);
     return res.data;
   } catch (error) {
     console.error("Error updating story:", error);
     console.error("Response data:", error.response?.data); // Debug log
+    console.error("Response status:", error.response?.status); // Debug log
+    console.error("Response headers:", error.response?.headers); // Debug log
     console.error("Full error response:", error.response); // Debug log
     throw error;
   }

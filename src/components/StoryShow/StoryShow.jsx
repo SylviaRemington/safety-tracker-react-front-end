@@ -20,6 +20,7 @@ const StoryShow = () => {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
+    newAuthor: "",
     content: "",
   });
   const [authors, setAuthors] = useState([]);
@@ -45,6 +46,7 @@ const StoryShow = () => {
           title: storyData.title || "",
           // using author id as a string for form
           author: storyData.author ? String(storyData.author.id) : "", 
+          newAuthor: "",
           content: storyData.content || "",
         });
       } catch (error) {
@@ -73,11 +75,11 @@ const StoryShow = () => {
       let authorId = parseInt(formData.author); 
       // creating a new author if it's not an id
       if (isNaN(authorId) || !formData.author) { 
-        // Only create author if we have a valid name
-        if (formData.author && formData.author.trim()) {
+        // Check if user typed a new author name
+        if (formData.newAuthor && formData.newAuthor.trim()) {
           const response = await axios.post(
             `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
-            { name: formData.author.trim() }
+            { name: formData.newAuthor.trim() }
           );
           // getting a new author id
           authorId = response.data.id; 
@@ -90,7 +92,8 @@ const StoryShow = () => {
       await updateStory(id, {
         title: formData.title,
         content: formData.content,
-        authorId // <--- Send as authorId
+        authorId, // <--- Send as authorId
+        ownerId: user.id // <--- Add owner ID
       });
       setIsEditing(false);
       // adding to refresh the story info
@@ -101,6 +104,7 @@ const StoryShow = () => {
         title: updatedStory.title || "",
         // string for the form
         author: updatedStory.author ? String(updatedStory.author.id) : "", 
+        newAuthor: "",
         content: updatedStory.content || "",
       });
     } catch (error) {
@@ -111,6 +115,13 @@ const StoryShow = () => {
 
   // Deletes Story when person clicks on delete
   const handleDeleteStory = async () => {
+    // Show confirmation dialog
+    const confirmed = window.confirm("Are you sure you'd like to delete this story? This action cannot be undone.");
+    
+    if (!confirmed) {
+      return; // User cancelled, don't delete
+    }
+    
     try {
       setError(null);
       await deleteStory(id);
@@ -170,8 +181,8 @@ const StoryShow = () => {
             <input 
               type="text"
               placeholder="Or type new author name"
-              name="author"
-              value={formData.author === "" || isNaN(parseInt(formData.author)) ? formData.author : ""}
+              name="newAuthor"
+              value={formData.newAuthor || ""}
               onChange={handleChange}
             />
           </div>

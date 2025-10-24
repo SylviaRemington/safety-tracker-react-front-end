@@ -71,61 +71,75 @@ const StoryCreate = () => {
 
   // returning - creating the form section
   return (
-    <main style={{ marginTop: '80px', padding: '20px' }}>
-      <h1>Create Story</h1>
-      {error && <p>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="author">Author:</label>
-          <select // using dropdown vs just input field
-            id="author"
-            name="author"
-            value={formData.author}
-            onChange={handleChange}
-          >
-            {/* dropdown option */}
-            <option value="">Select or type new author</option> 
-            {authors.map((author) => (
-              // for showing author ids
-              <option key={author.id} value={String(author.id)}> 
-                {author.name}
-              </option>
-            ))}
-          </select>
-          <input // input for new authors name
-            type="text"
-            placeholder="Or type new author name"
-            name="author"
-            value={formData.author === "" || isNaN(formData.author) ? formData.author : ""}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="content">Content:</label>
-          <textarea
-            id="content"
-            name="content"
-            value={formData.content}
-            onChange={handleChange}
-            rows="10"
-            required
-          />
-        </div>
+    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0', padding: '20px' }}>
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: '12px',
+        padding: '30px',
+        border: '1px solid rgba(255, 255, 255, 0.2)'
+      }}>
+        <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Create Story</h1>
+        {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px' }}>{error}</p>}
+        
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div>
+            <label htmlFor="title" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Title:</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={formData.title}
+              onChange={handleChange}
+              required
+              style={{ width: '100%' }}
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="author" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Author:</label>
+            <select
+              id="author"
+              name="author"
+              value={formData.author}
+              onChange={handleChange}
+              style={{ width: '100%', marginBottom: '10px' }}
+            >
+              <option value="">Select or type new author</option> 
+              {authors.map((author) => (
+                <option key={author.id} value={String(author.id)}> 
+                  {author.name}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              placeholder="Or type new author name"
+              name="author"
+              value={formData.author === "" || isNaN(formData.author) ? formData.author : ""}
+              onChange={handleChange}
+              style={{ width: '100%' }}
+            />
+          </div>
+          
+          <div>
+            <label htmlFor="content" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Content:</label>
+            <textarea
+              id="content"
+              name="content"
+              value={formData.content}
+              onChange={handleChange}
+              rows="10"
+              required
+              style={{ width: '100%' }}
+            />
+          </div>
 
-        <button type="submit">Create Story</button>
-        <button type="button" onClick={() => navigate("/")}>Cancel</button>
-      </form>
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
+            <button type="submit">Create Story</button>
+            <button type="button" onClick={() => navigate("/")}>Cancel</button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 };

@@ -17,10 +17,24 @@ const App = () => {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<StoriesList />} />
+        <Route 
+          path="/" 
+          element={
+            <ProtectedRoute>
+              <StoriesList />
+            </ProtectedRoute>
+          } 
+        />
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/login" element={<LoginForm />} />
-        <Route path="/stories/:id" element={<StoryShow />} />
+        <Route 
+          path="/stories/:id" 
+          element={
+            <ProtectedRoute>
+              <StoryShow />
+            </ProtectedRoute>
+          } 
+        />
         <Route
           path="/stories/create"
           element={

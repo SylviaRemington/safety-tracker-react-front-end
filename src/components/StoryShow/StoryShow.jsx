@@ -201,32 +201,47 @@ const StoryShow = () => {
 
   // showing story details
   return (
-    <div style={{ marginTop: '80px', padding: '20px' }}>
+    <div style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0', padding: '20px' }}>
       {/* showing an error if there are any errors */}
-      {error && <p>{error}</p>}
-      {/* showing story title or no title if nothing is put down */}
-      <h1>{story?.title || "No title available"}</h1>
+      {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px' }}>{error}</p>}
       
-      {/* Navigation and Action Buttons - moved under title */}
-      <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-        {/* Always show navigation buttons */}
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/")}>See All Stories</button>
+      <div style={{
+        background: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: '12px',
+        padding: '30px',
+        border: '1px solid rgba(255, 255, 255, 0.2)'
+      }}>
+        {/* showing story title or no title if nothing is put down */}
+        <h1 style={{ marginBottom: '20px', color: 'white' }}>{story?.title || "No title available"}</h1>
         
-        {/* Show edit/delete buttons only if user is logged in and is the owner */}
-        {user && story?.owner && user.id === story.owner.id && (
-          <>
-            <button onClick={() => setIsEditing(true)}>Edit My Story</button>
-            <button onClick={handleDeleteStory}>Delete My Story</button>
-          </>
-        )}
-      </div>
-      
-      {/* showing author's name or unknown author if none is given */}
-      <p>By: {story?.author?.name || "Unknown Author"}</p>
-      {/* showing the main content/story body */}
-      <div style={{ whiteSpace: 'pre-wrap' }}>
-        {story?.content || "No content or story available. Check back soon."}
+        {/* Navigation and Action Buttons - moved under title */}
+        <div style={{ marginBottom: '25px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          {/* Always show navigation buttons */}
+          <button onClick={() => navigate("/")}>Home</button>
+          <button onClick={() => navigate("/")}>See All Stories</button>
+          
+          {/* Show edit/delete buttons only if user is logged in and is the owner */}
+          {user && story?.owner && user.id === story.owner.id && (
+            <>
+              <button onClick={() => setIsEditing(true)}>Edit My Story</button>
+              <button onClick={handleDeleteStory}>Delete My Story</button>
+            </>
+          )}
+        </div>
+        
+        {/* showing author's name or unknown author if none is given */}
+        <p style={{ marginBottom: '25px', color: 'rgba(255, 255, 255, 0.8)' }}>
+          <strong>By: {story?.author?.name || "Unknown Author"}</strong>
+        </p>
+        
+        {/* showing the main content/story body */}
+        <div style={{ 
+          whiteSpace: 'pre-wrap', 
+          lineHeight: '1.6',
+          color: 'rgba(255, 255, 255, 0.9)'
+        }}>
+          {story?.content || "No content or story available. Check back soon."}
+        </div>
       </div>
     </div>
   );

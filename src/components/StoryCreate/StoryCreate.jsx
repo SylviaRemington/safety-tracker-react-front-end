@@ -20,10 +20,12 @@ const StoryCreate = () => {
   useEffect(() => { // 
     const fetchAuthors = async () => {
       try {
+        setError("");
         const authorsData = await getAuthors();
         setAuthors(authorsData);
       } catch (error) {
-        setError("Failed to load authors.");
+        console.error("Error fetching authors:", error);
+        setError("Failed to load authors: " + (error.message || "Unknown error"));
       }
     };
     fetchAuthors();
@@ -38,14 +40,21 @@ const StoryCreate = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
+      setError("");
       // checking if author is an ID or new name
-      let authorId = formData.author; // first, check if it's an ID from the form
-      if (!formData.author || isNaN(formData.author)) { // if it's a new author - this is for handling new author
-        const response = await axios.post(
-          `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
-          { name: formData.author || "Unknown Author" }
-        );
-        authorId = response.data.id; // gets new author id here if new
+      let authorId = parseInt(formData.author); // first, check if it's an ID from the form
+      if (!formData.author || isNaN(authorId)) { // if it's a new author - this is for handling new author
+        // Only create author if we have a valid name
+        if (formData.author && formData.author.trim()) {
+          const response = await axios.post(
+            `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
+            { name: formData.author.trim() }
+          );
+          authorId = response.data.id; // gets new author id here if new
+        } else {
+          setError("Please select an author or enter a new author name");
+          return;
+        }
       }
       // sending story with author ID
       await createStory({
@@ -55,7 +64,8 @@ const StoryCreate = () => {
       });
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      console.error("Error creating story:", error);
+      setError("Failed to create story: " + (error.message || "Unknown error"));
     }
   };
 
@@ -88,7 +98,7 @@ const StoryCreate = () => {
             <option value="">Select or type new author</option> 
             {authors.map((author) => (
               // for showing author ids
-              <option key={author.id} value={author.id}> 
+              <option key={author.id} value={String(author.id)}> 
                 {author.name}
               </option>
             ))}

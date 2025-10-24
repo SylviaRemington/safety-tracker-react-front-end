@@ -7,7 +7,7 @@ const getAuthors = async () => {
     const data = await res.data;
     return data;
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching authors:", error);
     throw error;
   }
 };

@@ -33,6 +33,8 @@ const StoryShow = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
+        setError(null);
         const [storyData, authorsData] = await Promise.all([ // <--- Fetch both
           getStoryById(id),
           getAuthors()
@@ -40,43 +42,49 @@ const StoryShow = () => {
         setStory(storyData);
         setAuthors(authorsData);
         setFormData({
-          title: storyData.title,
+          title: storyData.title || "",
           // using author id as a string for form
-          author: String(storyData.author.id), 
-          content: storyData.content,
+          author: storyData.author ? String(storyData.author.id) : "", 
+          content: storyData.content || "",
         });
       } catch (error) {
-        setError("Failed to load story or authors.");
+        console.error("Error fetching data:", error);
+        setError("Failed to load story or authors: " + (error.message || "Unknown error"));
       } finally {
         // done fetching the info
         setLoading(false);
       }
     };
     fetchData();
-  }, [id, isEditing]);
+  }, [id]);
 
   // handleChange section - handles adding input and whatever is typed in form boxes
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  // ! TROUBLESHOOTING HANDLE EDIT STORY SINCE EDIT FUNCTIONALITY IS SHOWING A 422 ERROR
-  // ! Now Create is not longer working... Need to troubleshoot Stories List, Stories Create, and Story Show
   // Saves changes/updates to Story when person clicks on save
   const handleEditStory = async (event) => {
     event.preventDefault();
     try {
+      setError(null);
       // making sure that authorId is a number
       // converting it to a number
       let authorId = parseInt(formData.author); 
       // creating a new author if it's not an id
-      if (isNaN(authorId)) { 
-        const response = await axios.post(
-          `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
-          { name: formData.author || "Unknown Author" }
-        );
-        // getting a new author id
-        authorId = response.data.id; 
+      if (isNaN(authorId) || !formData.author) { 
+        // Only create author if we have a valid name
+        if (formData.author && formData.author.trim()) {
+          const response = await axios.post(
+            `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/authors/`,
+            { name: formData.author.trim() }
+          );
+          // getting a new author id
+          authorId = response.data.id; 
+        } else {
+          setError("Please select an author or enter a new author name");
+          return;
+        }
       }
       // sending update with the correct authorId
       await updateStory(id, {
@@ -90,23 +98,26 @@ const StoryShow = () => {
       // updating the state
       setStory(updatedStory); 
       setFormData({
-        title: updatedStory.title,
+        title: updatedStory.title || "",
         // string for the form
-        author: String(updatedStory.author.id), 
-        content: updatedStory.content,
+        author: updatedStory.author ? String(updatedStory.author.id) : "", 
+        content: updatedStory.content || "",
       });
     } catch (error) {
-      setError("Failed to update story: " + error.message); 
+      console.error("Error updating story:", error);
+      setError("Failed to update story: " + (error.message || "Unknown error")); 
     }
   };
 
   // Deletes Story when person clicks on delete
   const handleDeleteStory = async () => {
     try {
+      setError(null);
       await deleteStory(id);
       navigate("/");
     } catch (error) {
-      setError("Failed to delete story: " + error.message); 
+      console.error("Error deleting story:", error);
+      setError("Failed to delete story: " + (error.message || "Unknown error")); 
     }
   };
 
@@ -198,7 +209,7 @@ const StoryShow = () => {
       {/* showing the main content/story body */}
       <p>{story?.content || "No content or story available. Check back soon."}</p>
       {/* showing Edit/Delete Buttons if the user is logged in and is an owner */}
-      {user && user.id === story.owner.id && ( // <--- Added owner check
+      {user && story?.owner && user.id === story.owner.id && ( // <--- Added owner check with null safety
         <>
           <button onClick={() => setIsEditing(true)}>Edit Story</button>
           <button onClick={handleDeleteStory}>Delete Story</button>

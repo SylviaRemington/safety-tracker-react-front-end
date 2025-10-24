@@ -206,14 +206,9 @@ const StoryShow = () => {
       {error && <p>{error}</p>}
       {/* showing story title or no title if nothing is put down */}
       <h1>{story?.title || "No title available"}</h1>
-      {/* showing author's name or unknown author if none is given */}
-      <p>By: {story?.author?.name || "Unknown Author"}</p>
-      {/* showing the main content/story body */}
-      <div style={{ whiteSpace: 'pre-wrap' }}>
-        {story?.content || "No content or story available. Check back soon."}
-      </div>
-      {/* Navigation and Action Buttons */}
-      <div style={{ marginTop: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+      
+      {/* Navigation and Action Buttons - moved under title */}
+      <div style={{ marginBottom: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
         {/* Always show navigation buttons */}
         <button onClick={() => navigate("/")}>Home</button>
         <button onClick={() => navigate("/")}>See All Stories</button>
@@ -225,6 +220,13 @@ const StoryShow = () => {
             <button onClick={handleDeleteStory}>Delete My Story</button>
           </>
         )}
+      </div>
+      
+      {/* showing author's name or unknown author if none is given */}
+      <p>By: {story?.author?.name || "Unknown Author"}</p>
+      {/* showing the main content/story body */}
+      <div style={{ whiteSpace: 'pre-wrap' }}>
+        {story?.content || "No content or story available. Check back soon."}
       </div>
     </div>
   );

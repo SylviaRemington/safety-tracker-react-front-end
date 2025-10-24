@@ -71,7 +71,7 @@ const StoryCreate = () => {
 
   // returning - creating the form section
   return (
-    <main>
+    <main style={{ marginTop: '80px', padding: '20px' }}>
       <h1>Create Story</h1>
       {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>

@@ -96,17 +96,8 @@ const StoryShow = () => {
         ownerId: user.id // <--- Add owner ID
       });
       setIsEditing(false);
-      // adding to refresh the story info
-      const updatedStory = await getStoryById(id); 
-      // updating the state
-      setStory(updatedStory); 
-      setFormData({
-        title: updatedStory.title || "",
-        // string for the form
-        author: updatedStory.author ? String(updatedStory.author.id) : "", 
-        newAuthor: "",
-        content: updatedStory.content || "",
-      });
+      // redirect to main dashboard after successful edit
+      navigate("/");
     } catch (error) {
       console.error("Error updating story:", error);
       setError("Failed to update story: " + (error.message || "Unknown error")); 
@@ -210,7 +201,7 @@ const StoryShow = () => {
 
   // showing story details
   return (
-    <div>
+    <div style={{ marginTop: '80px', padding: '20px' }}>
       {/* showing an error if there are any errors */}
       {error && <p>{error}</p>}
       {/* showing story title or no title if nothing is put down */}
@@ -221,13 +212,20 @@ const StoryShow = () => {
       <div style={{ whiteSpace: 'pre-wrap' }}>
         {story?.content || "No content or story available. Check back soon."}
       </div>
-      {/* showing Edit/Delete Buttons if the user is logged in and is an owner */}
-      {user && story?.owner && user.id === story.owner.id && ( // <--- Added owner check with null safety
-        <>
-          <button onClick={() => setIsEditing(true)}>Edit Story</button>
-          <button onClick={handleDeleteStory}>Delete Story</button>
-        </>
-      )}
+      {/* Navigation and Action Buttons */}
+      <div style={{ marginTop: '20px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+        {/* Always show navigation buttons */}
+        <button onClick={() => navigate("/")}>Home</button>
+        <button onClick={() => navigate("/")}>See All Stories</button>
+        
+        {/* Show edit/delete buttons only if user is logged in and is the owner */}
+        {user && story?.owner && user.id === story.owner.id && (
+          <>
+            <button onClick={() => setIsEditing(true)}>Edit My Story</button>
+            <button onClick={handleDeleteStory}>Delete My Story</button>
+          </>
+        )}
+      </div>
     </div>
   );
 };

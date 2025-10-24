@@ -7,6 +7,18 @@ const StoriesList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Function to get first two sentences as preview
+  const getPreview = (content) => {
+    if (!content) return "No content available";
+    
+    // Split by sentence endings (. ! ?) and take first two
+    const sentences = content.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
+    const preview = sentences.slice(0, 2).join('. ').trim();
+    
+    // Add ellipsis if there are more sentences
+    return sentences.length > 2 ? preview + '...' : preview;
+  };
+
   useEffect(() => {
     const fetchStories = async () => {
       try {
@@ -35,7 +47,7 @@ const StoriesList = () => {
   }
 
   return (
-    <main>
+    <main style={{ marginTop: '80px', padding: '20px' }}>
       <h1>Welcome to Stories From People Like You</h1>
       <p>Feel free to explore our stories & articles...</p>
       <p>...AND...</p>
@@ -53,7 +65,9 @@ const StoriesList = () => {
                 {/* Going to show first 100 chars of content as preview for a kind of taster. */}
                 {/* <p>{story.content.substring(0, 100)}...</p> */}
                 <p>By: {story.author?.name || "Unknown Author"}</p>
-                <div style={{ whiteSpace: 'pre-wrap' }}>Content: {story.content || "No content available"}</div>
+                <div style={{ whiteSpace: 'pre-wrap', fontStyle: 'italic', color: '#666' }}>
+                  {getPreview(story.content)}
+                </div>
               </Link>
             </li>
           ))}

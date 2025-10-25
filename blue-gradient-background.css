@@ -1,0 +1,159 @@
+/* Blue Gradient Background CSS */
+/* Created for: Safety Tracker React Frontend */
+
+/* Main blue gradient background */
+.blue-gradient-background {
+  background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Glass-morphism form card */
+.glass-form-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Alternative glass card with more transparency */
+.glass-form-card-light {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Dark glass card variant */
+.glass-form-card-dark {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Form styling to match the glass effect */
+.glass-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.glass-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+.glass-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.glass-form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.glass-form button {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.glass-form button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.glass-form button.secondary {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-form button.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Error message styling */
+.glass-error {
+  color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* Success message styling */
+.glass-success {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .blue-gradient-background {
+    padding: 10px;
+    min-height: 100vh;
+  }
+  
+  .glass-form-card,
+  .glass-form-card-light,
+  .glass-form-card-dark {
+    max-width: 100%;
+    padding: 20px;
+  }
+}
+
+/* Usage Examples */
+/*
+HTML Structure:
+<div class="blue-gradient-background">
+  <div class="glass-form-card">
+    <h1 style="text-align: center; color: white; margin-bottom: 30px;">Your Title</h1>
+    <form class="glass-form">
+      <div>
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email" />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input type="password" placeholder="Enter your password" />
+      </div>
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button type="submit">Submit</button>
+        <button type="button" class="secondary">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>
+*/

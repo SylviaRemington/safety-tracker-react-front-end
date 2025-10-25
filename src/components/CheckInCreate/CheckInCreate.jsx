@@ -11,6 +11,7 @@ const CheckInCreate = () => {
     description: "",
     category: "",
     day_type: "",
+    relaxed_today: "",
     reaction_level: "",
     coping_action: "",
     effectiveness: ""
@@ -101,14 +102,30 @@ const CheckInCreate = () => {
               style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
             >
               <option value="">What kind of day are you having?</option>
-              <option value="Challenging Days">Challenging Days</option>
-              <option value="Normal Days - Not Bad or Good">Normal Days - Not Bad or Good</option>
-              <option value="Good Days">Good Days</option>
+              <option value="Challenging Day - Today's been rough.">Challenging Day - Today's been rough.</option>
+              <option value="Normal Day - Not Bad or Good, I'm ok.">Normal Day - Not Bad or Good, I'm ok.</option>
+              <option value="Good Day - Happy, Fun Day, and/or Peaceful Day.">Good Day - Happy, Fun Day, and/or Peaceful Day.</option>
             </select>
           </div>
 
           <div>
-            <label htmlFor="category" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Category:</label>
+            <label htmlFor="relaxed_today" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Relaxed Today or Not?</label>
+            <select
+              id="relaxed_today"
+              name="relaxed_today"
+              value={formData.relaxed_today}
+              onChange={handleChange}
+              required
+              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+            >
+              <option value="">Select the one that is closest to how you felt today.</option>
+              <option value="Today, I felt like I could relax and be myself.">Today, I felt like I could relax and be myself.</option>
+              <option value="Today, I didn't feel relaxed and I didn't feel like I could be myself.">Today, I didn't feel relaxed and I didn't feel like I could be myself.</option>
+            </select>
+          </div>
+
+          <div>
+            <label htmlFor="category" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Category</label>
             <select
               id="category"
               name="category"
@@ -117,18 +134,19 @@ const CheckInCreate = () => {
               required
               style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
             >
-              <option value="">Select a category</option>
-              <option value="Physical">Physical</option>
-              <option value="Emotional">Emotional</option>
-              <option value="Financial">Financial</option>
-              <option value="Social">Social</option>
-              <option value="Work">Work</option>
-              <option value="Other">Other</option>
+              <option value="">Select a category of what you experienced today.</option>
+              <option value="No Abuse">No Abuse</option>
+              <option value="Physical Abuse">Physical Abuse</option>
+              <option value="Verbal Abuse">Verbal Abuse</option>
+              <option value="Emotional Abuse">Emotional Abuse</option>
+              <option value="Psychological Abuse">Psychological Abuse</option>
+              <option value="Financial Abuse">Financial Abuse</option>
+              <option value="I have no idea">I have no idea</option>
             </select>
           </div>
 
           <div>
-            <label htmlFor="reaction_level" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Reaction Level (1-10):</label>
+            <label htmlFor="reaction_level" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Reaction Level (1-10, 1 = least intense and 10 = most intense):</label>
             <input
               type="number"
               id="reaction_level"
@@ -137,6 +155,7 @@ const CheckInCreate = () => {
               onChange={handleChange}
               min="1"
               max="10"
+              placeholder="The intensity of your partner today when you experienced the category."
               required
               style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
             />

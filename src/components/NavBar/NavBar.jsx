@@ -18,7 +18,7 @@ const NavBar = () => {
         <ul>
           <li>Welcome, {user.username}</li>
           <li>
-            <Link to="/">Dashboard</Link>
+            <Link to="/">Safety-Tracker-Dashboard</Link>
           </li>
           <li>
             <Link to="/check-ins">My Check-Ins</Link>

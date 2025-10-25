@@ -21,10 +21,10 @@ const NavBar = () => {
             <Link to="/">Dashboard</Link>
           </li>
           <li>
-            <Link to="/stories/create">Add Story</Link>
+            <Link to="/check-ins">My Check-Ins</Link>
           </li>
           <li>
-            <Link to="/check-ins">My Check-Ins</Link>
+            <Link to="/stories/create">Add Story</Link>
           </li>
           <li>
             <Link to="/" onClick={handleSignOut}>

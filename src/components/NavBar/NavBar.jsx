@@ -24,6 +24,9 @@ const NavBar = () => {
             <Link to="/stories/create">Add Story</Link>
           </li>
           <li>
+            <Link to="/check-ins">My Check-Ins</Link>
+          </li>
+          <li>
             <Link to="/" onClick={handleSignOut}>
               Sign Out
             </Link>

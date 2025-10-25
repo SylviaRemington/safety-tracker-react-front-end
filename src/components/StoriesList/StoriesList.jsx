@@ -1,5 +1,4 @@
 import { getStories } from "../../services/storiesService";
-import checkInsService from "../../services/checkInsService";
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
@@ -45,9 +44,6 @@ const StoriesList = () => {
         }
       };
       fetchStories();
-      
-      // Test the check-ins service
-      checkInsService.getAllCheckIns().then(data => console.log("Check-ins:", data));
     }
   }, [user, userLoading, navigate]);
 

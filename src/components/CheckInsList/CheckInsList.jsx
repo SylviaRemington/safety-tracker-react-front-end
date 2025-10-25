@@ -1,83 +1,102 @@
-// // import tools needed
-// import { useState, useEffect } from "react";
-// import { Link } from "react-router";
+import { useEffect, useState, useContext } from "react";
+import { useNavigate } from "react-router";
+import { UserContext } from "../../contexts/UserContext";
+import checkInsService from "../../services/checkInsService";
 
-// // import service to get check-ins from backend
-// import { getCheckIns } from "../../services/checkInsService";
+const CheckInsList = () => {
+  const { user, loading: userLoading } = useContext(UserContext);
+  const navigate = useNavigate();
+  const [checkIns, setCheckIns] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-// const CheckInsList = () => {
-//     // using state for our check-ins data & storing it
-//     // "checkIns" will store all our check-ins that we get from the backend
-//     const [checkIns, setCheckIns] = useState([]);
+  useEffect(() => {
+    // Check if user is logged in
+    if (!userLoading && !user) {
+      navigate("/login");
+      return;
+    }
 
-//     // using state to track if data is still loading
-//     const [loading, setLoading] = useState(true);
+    if (user) {
+      const fetchCheckIns = async () => {
+        try {
+          setLoading(true);
+          setError(null);
+          const checkInsData = await checkInsService.getAllCheckIns();
+          setCheckIns(checkInsData);
+        } catch (error) {
+          console.error("Error fetching check-ins:", error);
+          setError("Failed to load check-ins: " + (error.message || "Unknown error"));
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchCheckIns();
+    }
+  }, [user, userLoading, navigate]);
 
-//     // When this page first opens, automatically get all our check-ins from backend  useEffect(() => {
-//     const fetchCheckIns = async () => {
-//       try {
-//         const checkInsData = await getCheckIns();
-//         setCheckIns(checkInsData);
-//       } catch (error) {
-//         console.log("Error loading check-ins:", error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-    
-//     fetchCheckIns();
-//   }, []);
+  // Show loading while checking authentication
+  if (userLoading) {
+    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Loading...</div>;
+  }
 
-//   // Show loading message while fetching data
-//   if (loading) {
-//     return <main><h1>Loading your check-ins...</h1></main>;
-//   }
+  // If not logged in, this will redirect to login
+  if (!user) {
+    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Redirecting to login...</div>;
+  }
 
-//   return (
-//     <main>
-//       {/* Page Title */}
-//       <h1>My Daily Check-Ins</h1>
+  if (loading) {
+    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Loading check-ins...</div>;
+  }
+
+  if (error) {
+    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Error: {error}</div>;
+  }
+
+  return (
+    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
+      <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>My Daily Check-Ins</h1>
       
-//       {/* Link to create new check-in */}
-//       <div style={{ marginBottom: "20px" }}>
-//         <Link to="/check-ins/create" style={{ 
-//           background: "#667eea", 
-//           color: "white", 
-//           padding: "10px 20px", 
-//           textDecoration: "none", 
-//           borderRadius: "5px" 
-//         }}>
-//           + Add New Check-In
-//         </Link>
-//       </div>
+      {checkIns.length === 0 ? (
+        <div style={{ 
+          background: 'rgba(255, 255, 255, 0.1)', 
+          padding: '20px', 
+          borderRadius: '12px', 
+          textAlign: 'center' 
+        }}>
+          <p style={{ color: 'white' }}>No check-ins available yet.</p>
+        </div>
+      ) : (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {checkIns.map((checkIn) => (
+            <div key={checkIn.id} style={{
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '12px',
+              padding: '20px',
+              border: '1px solid rgba(255, 255, 255, 0.2)'
+            }}>
+              <h2 style={{ margin: '0 0 10px 0', fontWeight: 'bold', color: 'white' }}>
+                {checkIn.title || "Untitled Check-In"}
+              </h2>
+              <p style={{ margin: '0 0 10px 0', color: 'rgba(255, 255, 255, 0.8)' }}>
+                Category: {checkIn.category}
+              </p>
+              <p style={{ margin: '0 0 10px 0', color: 'rgba(255, 255, 255, 0.8)' }}>
+                Reaction Level: {checkIn.reaction_level}/10
+              </p>
+              <div style={{ 
+                whiteSpace: 'pre-wrap', 
+                color: 'rgba(255, 255, 255, 0.7)',
+                lineHeight: '1.5'
+              }}>
+                {checkIn.description}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </main>
+  );
+};
 
-//       {/* Show message if no check-ins */}
-//       {checkIns.length === 0 && (
-//         <p>You haven't created any check-ins yet. <Link to="/check-ins/create">Create your first one!</Link></p>
-//       )}
-
-//       {/* List all check-ins */}
-//       <ul style={{ listStyle: "none", padding: 0 }}>
-//         {checkIns.map((checkIn) => (
-//           <li key={checkIn.id} style={{ 
-//             border: "1px solid #ddd", 
-//             marginBottom: "15px", 
-//             padding: "15px", 
-//             borderRadius: "8px" 
-//           }}>
-//             <Link to={`/check-ins/${checkIn.id}`} style={{ textDecoration: "none", color: "#333" }}>
-//               <h3>{checkIn.title}</h3>
-//               <p><strong>Category:</strong> {checkIn.category}</p>
-//               <p><strong>Reaction Level:</strong> {checkIn.reaction_level}/10</p>
-//               <p><strong>Effectiveness:</strong> {checkIn.effectiveness}/10</p>
-//               {/* Show short preview of description */}
-//               <p>{checkIn.description.substring(0, 100)}...</p>
-//             </Link>
-//           </li>
-//         ))}
-//       </ul>
-//     </main>
-//   );
-// };
-
-// export default CheckInsList;
+export default CheckInsList;

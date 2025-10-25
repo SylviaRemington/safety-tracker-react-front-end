@@ -57,6 +57,22 @@ const CheckInsList = () => {
     <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
       <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>My Daily Check-Ins</h1>
       
+      <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+        <button 
+          onClick={() => navigate("/check-ins/create")}
+          style={{ 
+            padding: '10px 20px', 
+            background: 'rgba(255, 255, 255, 0.2)', 
+            color: 'white', 
+            border: '1px solid rgba(255, 255, 255, 0.3)', 
+            borderRadius: '6px', 
+            cursor: 'pointer' 
+          }}
+        >
+          Add New Check-In
+        </button>
+      </div>
+      
       {checkIns.length === 0 ? (
         <div style={{ 
           background: 'rgba(255, 255, 255, 0.1)', 

@@ -9,7 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 // Importing Check-Ins components 
 import CheckInsList from "./components/CheckInsList/CheckInsList";
-// import CheckInCreate from "./components/CheckInCreate/CheckInCreate";
+import CheckInCreate from "./components/CheckInCreate/CheckInCreate";
 // import CheckInShow from "./components/CheckInShow/CheckInShow";
 
 const App = () => {
@@ -53,7 +53,7 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        {/* <Route 
+        <Route 
           path="/check-ins/create" 
           element={
             <ProtectedRoute>
@@ -61,7 +61,7 @@ const App = () => {
             </ProtectedRoute>
           } 
         />
-        <Route path="/check-ins/:id" element={<CheckInShow />} /> */}
+        {/* <Route path="/check-ins/:id" element={<CheckInShow />} /> */}
 
         <Route
           path="*"

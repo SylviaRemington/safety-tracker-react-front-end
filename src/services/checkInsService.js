@@ -1,11 +1,11 @@
-import axios from "axios";
-import { BASE_URL } from "./axiosConfig";
+import axios from "./axiosConfig";
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/check_ins`;
 
 const checkInsService = {
   // Get all check-ins for the logged-in user
   getAllCheckIns: async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/check_ins/`);
+      const res = await axios.get(`${BASE_URL}/`);
       return res.data;
     } catch (error) {
       console.error("Error fetching check-ins:", error);
@@ -16,7 +16,7 @@ const checkInsService = {
   // Get a single check-in by ID
   getCheckIn: async (id) => {
     try {
-      const res = await axios.get(`${BASE_URL}/check_ins/${id}/`);
+      const res = await axios.get(`${BASE_URL}/${id}/`);
       return res.data;
     } catch (error) {
       console.error("Error fetching check-in:", error);
@@ -27,7 +27,7 @@ const checkInsService = {
   // Create a new check-in
   createCheckIn: async (checkIn) => {
     try {
-      const res = await axios.post(`${BASE_URL}/check_ins/`, checkIn);
+      const res = await axios.post(`${BASE_URL}/`, checkIn);
       return res.data;
     } catch (error) {
       console.error("Error creating check-in:", error);
@@ -38,7 +38,7 @@ const checkInsService = {
   // Update an existing check-in
   updateCheckIn: async (id, checkIn) => {
     try {
-      const res = await axios.put(`${BASE_URL}/check_ins/${id}/`, checkIn);
+      const res = await axios.put(`${BASE_URL}/${id}/`, checkIn);
       return res.data;
     } catch (error) {
       console.error("Error updating check-in:", error);
@@ -49,7 +49,7 @@ const checkInsService = {
   // Delete a check-in
   deleteCheckIn: async (id) => {
     try {
-      const res = await axios.delete(`${BASE_URL}/check_ins/${id}/`);
+      const res = await axios.delete(`${BASE_URL}/${id}/`);
       return res.data;
     } catch (error) {
       console.error("Error deleting check-in:", error);

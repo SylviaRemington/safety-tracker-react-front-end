@@ -89,24 +89,17 @@ const CheckInsList = () => {
               background: 'rgba(255, 255, 255, 0.1)',
               borderRadius: '12px',
               padding: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.2)'
-            }}>
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              cursor: 'pointer'
+            }}
+            onClick={() => navigate(`/check-ins/${checkIn.id}`)}
+            >
               <h2 style={{ margin: '0 0 10px 0', fontWeight: 'bold', color: 'white' }}>
                 {checkIn.title || "Untitled Check-In"}
               </h2>
-              <p style={{ margin: '0 0 10px 0', color: 'rgba(255, 255, 255, 0.8)' }}>
-                Category: {checkIn.category}
+              <p style={{ margin: '0', color: 'rgba(255, 255, 255, 0.8)', fontSize: '14px' }}>
+                {new Date(checkIn.created_at || checkIn.updated_at || Date.now()).toLocaleDateString()}
               </p>
-              <p style={{ margin: '0 0 10px 0', color: 'rgba(255, 255, 255, 0.8)' }}>
-                Reaction Level: {checkIn.reaction_level}/10
-              </p>
-              <div style={{ 
-                whiteSpace: 'pre-wrap', 
-                color: 'rgba(255, 255, 255, 0.7)',
-                lineHeight: '1.5'
-              }}>
-                {checkIn.description}
-              </div>
             </div>
           ))}
         </div>

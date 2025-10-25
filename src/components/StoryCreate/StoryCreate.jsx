@@ -136,6 +136,7 @@ const StoryCreate = () => {
 
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
             <button type="submit">Create Story</button>
+            <button type="button" onClick={() => navigate("/")}>Go to All Stories</button>
             <button type="button" onClick={() => navigate("/")}>Cancel</button>
           </div>
         </form>

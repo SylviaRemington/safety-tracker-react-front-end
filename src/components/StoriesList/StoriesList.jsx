@@ -69,10 +69,10 @@ const StoriesList = () => {
 
   return (
       <main className="main-container">
-      <h1 className="welcome-title">Welcome to Stories From People Like You</h1>
-      <p className="welcome-subtitle">Feel free to explore our stories & articles...</p>
-      <p className="welcome-subtitle">...AND...</p>
-      <p className="welcome-description">We have so many shared experiences & wellbeing tips in this Community Support Area.</p>
+      <h1 className="welcome-title">Welcome to Safety Tracker</h1>
+      <p className="welcome-subtitle">A place to have a personal, private journal for yourself</p>
+      <p className="welcome-subtitle">and</p>
+      <p className="welcome-description">To share stories from people like you for inspiration, encouragement, and to know you are not alone.</p>
       
       {stories.length === 0 ? (
         <div className="empty-state">

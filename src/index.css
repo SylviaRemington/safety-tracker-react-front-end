@@ -359,10 +359,12 @@ input:focus, textarea:focus, select:focus {
   text-align: center;
   margin-bottom: 30px;
   opacity: 0.8;
+  font-size: 1.2em;
 }
 
 .welcome-description {
   text-align: center;
   margin-bottom: 40px;
   opacity: 0.8;
+  font-size: 1.2em;
 }

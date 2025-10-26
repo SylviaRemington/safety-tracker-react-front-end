@@ -32,19 +32,14 @@ const LoginForm = () => {
   };
 
   return (
-    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: '12px',
-        padding: '30px',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
-      }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Login</h1>
-        {message && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px', textAlign: 'center' }}>{message}</p>}
+    <main className="main-container">
+      <div className="form-container">
+        <h1 className="form-title">Login</h1>
+        {message && <p className="error-message">{message}</p>}
         
-        <form autoComplete="off" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div>
-            <label htmlFor="email" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Email:</label>
+        <form autoComplete="off" onSubmit={handleSubmit} className="form-field">
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">Email:</label>
             <input
               type="text"
               autoComplete="off"
@@ -53,11 +48,11 @@ const LoginForm = () => {
               name="email"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div>
-            <label htmlFor="password" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Password:</label>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">Password:</label>
             <input
               type="password"
               autoComplete="off"
@@ -66,12 +61,12 @@ const LoginForm = () => {
               name="password"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-            <button type="submit" style={{ padding: '10px 20px', background: 'rgba(255, 255, 255, 0.2)', color: 'white', border: '1px solid rgba(255, 255, 255, 0.3)', borderRadius: '6px', cursor: 'pointer' }}>Login</button>
-            <button type="button" onClick={() => navigate("/")} style={{ padding: '10px 20px', background: 'transparent', color: 'white', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '6px', cursor: 'pointer' }}>Cancel</button>
+          <div className="form-buttons">
+            <button type="submit" className="form-button">Login</button>
+            <button type="button" onClick={() => navigate("/")} className="form-button-cancel">Cancel</button>
           </div>
         </form>
       </div>

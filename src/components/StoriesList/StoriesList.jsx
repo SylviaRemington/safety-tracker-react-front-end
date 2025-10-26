@@ -51,60 +51,45 @@ const StoriesList = () => {
 
   // Show loading while checking authentication
   if (userLoading) {
-    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   // If not logged in, this will redirect to login
   if (!user) {
-    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Redirecting to login...</div>;
+    return <div className="loading">Redirecting to login...</div>;
   }
 
   if (loading) {
-    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Loading stories...</div>;
+    return <div className="loading">Loading stories...</div>;
   }
 
   if (error) {
-    return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Error: {error}</div>;
+    return <div className="loading">Error: {error}</div>;
   }
 
   return (
-      <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px' }}>Welcome to Stories From People Like You</h1>
-      <p style={{ textAlign: 'center', marginBottom: '30px', opacity: 0.8 }}>Feel free to explore our stories & articles...</p>
-      <p style={{ textAlign: 'center', marginBottom: '30px', opacity: 0.8 }}>...AND...</p>
-      <p style={{ textAlign: 'center', marginBottom: '40px', opacity: 0.8 }}>We have so many shared experiences & wellbeing tips in this Community Support Area.</p>
+      <main className="main-container">
+      <h1 className="welcome-title">Welcome to Stories From People Like You</h1>
+      <p className="welcome-subtitle">Feel free to explore our stories & articles...</p>
+      <p className="welcome-subtitle">...AND...</p>
+      <p className="welcome-description">We have so many shared experiences & wellbeing tips in this Community Support Area.</p>
       
       {stories.length === 0 ? (
-        <div style={{ 
-          background: 'rgba(255, 255, 255, 0.1)', 
-          padding: '20px', 
-          borderRadius: '12px', 
-          textAlign: 'center' 
-        }}>
+        <div className="empty-state">
           <p>No stories available at the moment.</p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {stories.map((story) => (
-            <div key={story.id} style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              borderRadius: '12px',
-              padding: '20px',
-              border: '1px solid rgba(255, 255, 255, 0.2)'
-            }}>
+            <div key={story.id} className="story-card">
               <Link to={`stories/${story.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <h2 style={{ margin: '0 0 10px 0', fontWeight: 'bold', color: 'white' }}>
+                <h2 className="story-title">
                   {story.title || "Untitled Story"}
                 </h2>
-                <p style={{ margin: '0 0 15px 0', color: 'rgba(255, 255, 255, 0.8)', fontSize: '14px' }}>
+                <p className="story-author">
                   By: {story.author?.name || "Unknown Author"}
                 </p>
-                <div style={{ 
-                  whiteSpace: 'pre-wrap', 
-                  fontStyle: 'italic', 
-                  color: 'rgba(255, 255, 255, 0.7)',
-                  lineHeight: '1.5'
-                }}>
+                <div className="story-content">
                   {getPreview(story.content)}
                 </div>
               </Link>

@@ -140,37 +140,32 @@ const StoryShow = () => {
   // Editing Form Section - the form that shows up when clicking the edit section
   if (isEditing) {
     return (
-      <div style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
-        <div style={{
-          background: 'rgba(255, 255, 255, 0.1)',
-          borderRadius: '12px',
-          padding: '30px',
-          border: '1px solid rgba(255, 255, 255, 0.2)'
-        }}>
-          <h2 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Edit Story</h2>
-          <form onSubmit={handleEditStory} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+      <div className="main-container">
+        <div className="form-container">
+          <h2 className="form-title">Edit Story</h2>
+          <form onSubmit={handleEditStory} className="form-field">
             {/* Story Title - box that shows up for that */}
-            <div>
-              <label htmlFor="title" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Title:</label>
+            <div className="form-group">
+              <label htmlFor="title" className="form-label">Title:</label>
               <input
                 type="text"
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
                 required
-                style={{ width: '100%' }}
+                className="form-input"
               />
             </div>
 
             {/* Author's Name / Author Selection - box that shows up for that */}
-            <div>
-              <label htmlFor="author" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Author:</label>
+            <div className="form-group">
+              <label htmlFor="author" className="form-label">Author:</label>
               <select 
                 id="author"
                 name="author"
                 value={formData.author}
                 onChange={handleChange}
-                style={{ width: '100%', marginBottom: '10px' }}
+                className="form-select"
               >
                 <option value="">Select or type new author</option>  
                 {authors.map((author) => (
@@ -185,13 +180,13 @@ const StoryShow = () => {
                 name="newAuthor"
                 value={formData.newAuthor || ""}
                 onChange={handleChange}
-                style={{ width: '100%' }}
+                className="form-input"
               />
             </div>
 
             {/* Body Text Section - Main Section of Story - big box for the story text */} 
-            <div>
-              <label htmlFor="content" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Content:</label>
+            <div className="form-group">
+              <label htmlFor="content" className="form-label">Content:</label>
               <textarea
                 id="content"
                 name="content"
@@ -199,15 +194,15 @@ const StoryShow = () => {
                 onChange={handleChange}
                 rows="10"
                 required
-                style={{ width: '100%' }}
+                className="form-textarea"
               />
             </div>
             
             {/* Save Button Section */}
-            <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-              <button type="submit">Save</button>
-              <button type="button" onClick={() => setIsEditing(false)}>Cancel</button>
-              <button type="button" onClick={handleDeleteStory}>Delete</button>
+            <div className="form-buttons">
+              <button type="submit" className="form-button">Save</button>
+              <button type="button" onClick={() => setIsEditing(false)} className="form-button-cancel">Cancel</button>
+              <button type="button" onClick={handleDeleteStory} className="form-button-cancel">Delete</button>
             </div>
           </form>
         </div>
@@ -217,16 +212,11 @@ const StoryShow = () => {
 
   // showing story details
   return (
-      <div style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
+      <div className="main-container">
       {/* showing an error if there are any errors */}
-      {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px' }}>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
       
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: '12px',
-        padding: '30px',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
-      }}>
+      <div className="card">
         {/* showing story title or no title if nothing is put down */}
         <h1 style={{ marginBottom: '20px', color: 'white' }}>{story?.title || "No title available"}</h1>
         
@@ -251,11 +241,7 @@ const StoryShow = () => {
         </p>
         
         {/* showing the main content/story body */}
-        <div style={{ 
-          whiteSpace: 'pre-wrap', 
-          lineHeight: '1.6',
-          color: 'rgba(255, 255, 255, 0.9)'
-        }}>
+        <div className="story-content">
           {story?.content || "No content or story available. Check back soon."}
         </div>
       </div>

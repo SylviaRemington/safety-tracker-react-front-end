@@ -55,19 +55,14 @@ const RegisterForm = () => {
   };
 
   return (
-    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: '12px',
-        padding: '30px',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
-      }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Register</h1>
-        {message && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px', textAlign: 'center' }}>{message}</p>}
+    <main className="main-container">
+      <div className="form-container">
+        <h1 className="form-title">Register</h1>
+        {message && <p className="error-message">{message}</p>}
         
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div>
-            <label htmlFor="email" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Email:</label>
+        <form onSubmit={handleSubmit} className="form-field">
+          <div className="form-group">
+            <label htmlFor="email" className="form-label">Email:</label>
             <input
               type="email"
               id="email"
@@ -75,11 +70,11 @@ const RegisterForm = () => {
               name="email"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div>
-            <label htmlFor="username" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Username:</label>
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">Username:</label>
             <input
               type="text"
               id="username"
@@ -87,11 +82,11 @@ const RegisterForm = () => {
               name="username"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div>
-            <label htmlFor="first_name" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>First Name:</label>
+          <div className="form-group">
+            <label htmlFor="first_name" className="form-label">First Name:</label>
             <input
               type="text"
               id="first_name"
@@ -99,11 +94,11 @@ const RegisterForm = () => {
               name="first_name"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div>
-            <label htmlFor="last_name" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Last Name:</label>
+          <div className="form-group">
+            <label htmlFor="last_name" className="form-label">Last Name:</label>
             <input
               type="text"
               id="last_name"
@@ -111,11 +106,11 @@ const RegisterForm = () => {
               name="last_name"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div>
-            <label htmlFor="password" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Password:</label>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">Password:</label>
             <input
               type="password"
               id="password"
@@ -123,11 +118,11 @@ const RegisterForm = () => {
               name="password"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div>
-            <label htmlFor="password_confirmation" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Confirm Password:</label>
+          <div className="form-group">
+            <label htmlFor="password_confirmation" className="form-label">Confirm Password:</label>
             <input
               type="password"
               id="password_confirmation"
@@ -135,12 +130,12 @@ const RegisterForm = () => {
               name="password_confirmation"
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-            <button type="submit" disabled={isFormInvalid()} style={{ padding: '10px 20px', background: isFormInvalid() ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.2)', color: 'white', border: '1px solid rgba(255, 255, 255, 0.3)', borderRadius: '6px', cursor: isFormInvalid() ? 'not-allowed' : 'pointer' }}>Register</button>
-            <button type="button" onClick={() => navigate("/")} style={{ padding: '10px 20px', background: 'transparent', color: 'white', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '6px', cursor: 'pointer' }}>Cancel</button>
+          <div className="form-buttons">
+            <button type="submit" disabled={isFormInvalid()} className="form-button">Register</button>
+            <button type="button" onClick={() => navigate("/")} className="form-button-cancel">Cancel</button>
           </div>
         </form>
       </div>

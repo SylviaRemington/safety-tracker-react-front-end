@@ -54,20 +54,15 @@ const CheckInCreate = () => {
   }
 
   return (
-    <main style={{ marginTop: '80px', padding: '20px', maxWidth: '600px', margin: '80px auto 0' }}>
-      <div style={{
-        background: 'rgba(255, 255, 255, 0.1)',
-        borderRadius: '12px',
-        padding: '30px',
-        border: '1px solid rgba(255, 255, 255, 0.2)'
-      }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '10px', color: 'white' }}>Create Daily Check-In</h1>
-        <p style={{ textAlign: 'center', marginBottom: '30px', color: 'rgba(255, 255, 255, 0.8)', fontSize: '16px', fontWeight: 'bold' }}>(All fields are required for check-in to submit)</p>
-        {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px', textAlign: 'center' }}>{error}</p>}
+    <main className="main-container">
+      <div className="form-container">
+        <h1 className="form-title">Create Daily Check-In</h1>
+        <p className="required-message">(All fields are required for check-in to submit)</p>
+        {error && <p className="error-message">{error}</p>}
         
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div>
-            <label htmlFor="title" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Title:</label>
+        <form onSubmit={handleSubmit} className="form-field">
+          <div className="form-group">
+            <label htmlFor="title" className="form-label">Title:</label>
             <input
               type="text"
               id="title"
@@ -75,12 +70,12 @@ const CheckInCreate = () => {
               value={formData.title}
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
 
-          <div>
-            <label htmlFor="description" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Description:</label>
+          <div className="form-group">
+            <label htmlFor="description" className="form-label">Description:</label>
             <textarea
               id="description"
               name="description"
@@ -88,19 +83,19 @@ const CheckInCreate = () => {
               onChange={handleChange}
               rows="4"
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-textarea"
             />
           </div>
 
-          <div>
-            <label htmlFor="day_type" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Day Type:</label>
+          <div className="form-group">
+            <label htmlFor="day_type" className="form-label">Day Type:</label>
             <select
               id="day_type"
               name="day_type"
               value={formData.day_type}
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-select"
             >
               <option value="">What kind of day are you having?</option>
               <option value="Challenging Day - Today's been rough.">Challenging Day - Today's been rough.</option>
@@ -109,15 +104,15 @@ const CheckInCreate = () => {
             </select>
           </div>
 
-          <div>
-            <label htmlFor="relaxed_today" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Relaxed Today or Not?</label>
+          <div className="form-group">
+            <label htmlFor="relaxed_today" className="form-label">Relaxed Today or Not?</label>
             <select
               id="relaxed_today"
               name="relaxed_today"
               value={formData.relaxed_today}
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-select"
             >
               <option value="">Select the one that is closest to how you felt today.</option>
               <option value="Today, I felt like I could relax and be myself.">Today, I felt like I could relax and be myself.</option>
@@ -125,15 +120,15 @@ const CheckInCreate = () => {
             </select>
           </div>
 
-          <div>
-            <label htmlFor="category" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Category</label>
+          <div className="form-group">
+            <label htmlFor="category" className="form-label">Category</label>
             <select
               id="category"
               name="category"
               value={formData.category}
               onChange={handleChange}
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-select"
             >
               <option value="">Select a category of what you experienced today.</option>
               <option value="No Abuse">No Abuse</option>
@@ -146,8 +141,8 @@ const CheckInCreate = () => {
             </select>
           </div>
 
-          <div>
-            <label htmlFor="reaction_level" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Reaction Level (1-10, 1 = least intense and 10 = most intense):</label>
+          <div className="form-group">
+            <label htmlFor="reaction_level" className="form-label">Reaction Level (1-10, 1 = least intense and 10 = most intense):</label>
             <input
               type="number"
               id="reaction_level"
@@ -158,12 +153,12 @@ const CheckInCreate = () => {
               max="10"
               placeholder="The intensity of your partner today when you experienced the category."
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
 
-          <div>
-            <label htmlFor="coping_action" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Coping Action:</label>
+          <div className="form-group">
+            <label htmlFor="coping_action" className="form-label">Coping Action:</label>
             <textarea
               id="coping_action"
               name="coping_action"
@@ -171,12 +166,12 @@ const CheckInCreate = () => {
               onChange={handleChange}
               rows="3"
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-textarea"
             />
           </div>
 
-          <div>
-            <label htmlFor="effectiveness" style={{ display: 'block', marginBottom: '8px', color: 'white', fontWeight: 'bold' }}>Effectiveness (1-10):</label>
+          <div className="form-group">
+            <label htmlFor="effectiveness" className="form-label">Effectiveness (1-10):</label>
             <input
               type="number"
               id="effectiveness"
@@ -186,13 +181,13 @@ const CheckInCreate = () => {
               min="1"
               max="10"
               required
-              style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.3)', background: 'rgba(255, 255, 255, 0.1)', color: 'white' }}
+              className="form-input"
             />
           </div>
 
-          <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-            <button type="submit" style={{ padding: '10px 20px', background: 'rgba(255, 255, 255, 0.2)', color: 'white', border: '1px solid rgba(255, 255, 255, 0.3)', borderRadius: '6px', cursor: 'pointer' }}>Create Check-In</button>
-            <button type="button" onClick={() => navigate("/check-ins")} style={{ padding: '10px 20px', background: 'transparent', color: 'white', border: '1px solid rgba(255, 255, 255, 0.5)', borderRadius: '6px', cursor: 'pointer' }}>Cancel</button>
+          <div className="form-buttons">
+            <button type="submit" className="form-button">Create Check-In</button>
+            <button type="button" onClick={() => navigate("/check-ins")} className="form-button-cancel">Cancel</button>
           </div>
         </form>
       </div>

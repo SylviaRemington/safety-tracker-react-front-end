@@ -70,7 +70,7 @@ const CheckInCreate = () => {
         
         <form onSubmit={handleSubmit} className="form-field">
           <div className="form-group">
-            <label htmlFor="title" className="form-label">Title:</label>
+            <label htmlFor="title" className="form-label">Title<br /><span style={{ fontSize: '0.9em' }}>(Was it a good or bad day? Short, descriptive or even one word.):</span></label>
             <input
               type="text"
               id="title"
@@ -83,7 +83,7 @@ const CheckInCreate = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="description" className="form-label">Description:</label>
+            <label htmlFor="description" className="form-label">Description<br /><span style={{ fontSize: '0.9em' }}>(Journal Entry)</span></label>
             <textarea
               id="description"
               name="description"
@@ -146,6 +146,7 @@ const CheckInCreate = () => {
               <option value="Psychological Abuse">Psychological Abuse</option>
               <option value="Financial Abuse">Financial Abuse</option>
               <option value="I have no idea">I have no idea</option>
+              <option value="Other">Other</option>
             </select>
           </div>
 
@@ -166,7 +167,7 @@ const CheckInCreate = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="coping_action" className="form-label">Coping Action:</label>
+            <label htmlFor="coping_action" className="form-label">Coping Action<br /><span style={{ fontSize: '0.9em' }}>(Whatever you did today to help yourself or you can write NA for Not Applicable, or because you have no idea what to write.)</span></label>
             <textarea
               id="coping_action"
               name="coping_action"
@@ -179,7 +180,7 @@ const CheckInCreate = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="effectiveness" className="form-label">Effectiveness (1-10):</label>
+            <label htmlFor="effectiveness" className="form-label">Coping Action Effectiveness<br />(1-10, 1 = least effective and 10 = very effective):</label>
             <input
               type="number"
               id="effectiveness"

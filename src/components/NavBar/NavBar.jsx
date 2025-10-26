@@ -27,6 +27,9 @@ const NavBar = () => {
             <Link to="/stories/create">Add Story</Link>
           </li>
           <li>
+            <Link to="/authors">Authors</Link>
+          </li>
+          <li>
             <Link to="/emergency-resources">Resources</Link>
           </li>
           <li>

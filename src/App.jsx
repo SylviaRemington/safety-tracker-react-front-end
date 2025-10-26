@@ -13,6 +13,8 @@ import CheckInCreate from "./components/CheckInCreate/CheckInCreate";
 import CheckInShow from "./components/CheckInShow/CheckInShow";
 import CheckInEdit from "./components/CheckInEdit/CheckInEdit";
 import EmergencyResources from "./components/EmergencyResources/EmergencyResources";
+import AuthorsList from "./components/AuthorsList/AuthorsList";
+import AuthorShow from "./components/AuthorShow/AuthorShow";
 
 const App = () => {
   return (
@@ -84,6 +86,22 @@ const App = () => {
           element={
             <ProtectedRoute>
               <EmergencyResources />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/authors" 
+          element={
+            <ProtectedRoute>
+              <AuthorsList />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/authors/:id" 
+          element={
+            <ProtectedRoute>
+              <AuthorShow />
             </ProtectedRoute>
           } 
         />

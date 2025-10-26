@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 import { login } from "../../services/authService";
@@ -7,12 +7,19 @@ import { UserContext } from "../../contexts/UserContext";
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { setUser } = useContext(UserContext);
+  const { user, setUser, loading } = useContext(UserContext);
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    // If user is already logged in, redirect to home page
+    if (!loading && user) {
+      navigate("/");
+    }
+  }, [user, loading, navigate]);
 
   const handleChange = (evt) => {
     setMessage("");
@@ -30,6 +37,16 @@ const LoginForm = () => {
       setMessage(err.message);
     }
   };
+
+  // Show loading while checking authentication
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
+  // If user is logged in, this will redirect to home
+  if (user) {
+    return <div className="loading">Redirecting...</div>;
+  }
 
   return (
     <main className="main-container">

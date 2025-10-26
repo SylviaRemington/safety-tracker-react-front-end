@@ -24,7 +24,7 @@ const EmergencyResources = () => {
           If you're in immediate danger or need help right now, please use these resources:
         </p>
 
-        <div className="emergency-section">
+        <div className="emergency-section" style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(78, 205, 196, 0.3)', marginBottom: '20px' }}>
           <h2 style={{ color: '#4ecdc4', marginBottom: '15px' }}>Immediate Danger</h2>
           <div className="resource-item">
             <h3>National Domestic Violence Hotline</h3>
@@ -39,7 +39,7 @@ const EmergencyResources = () => {
           </div>
         </div>
 
-        <div className="emergency-section">
+        <div className="emergency-section" style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(78, 205, 196, 0.3)', marginBottom: '20px' }}>
           <h2 style={{ color: '#4ecdc4', marginBottom: '15px' }}>Support & Counseling</h2>
           <div className="resource-item">
             <h3>National Sexual Assault Hotline</h3>
@@ -60,7 +60,7 @@ const EmergencyResources = () => {
           </div>
         </div>
 
-        <div className="emergency-section">
+        <div className="emergency-section" style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(78, 205, 196, 0.3)', marginBottom: '20px' }}>
           <h2 style={{ color: '#4ecdc4', marginBottom: '15px' }}>Local Resources</h2>
           <div className="resource-item">
             <h3>Local Domestic Violence Shelter</h3>
@@ -75,7 +75,7 @@ const EmergencyResources = () => {
           </div>
         </div>
 
-        <div className="emergency-section">
+        <div className="emergency-section" style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(78, 205, 196, 0.3)', marginBottom: '20px' }}>
           <h2 style={{ color: '#4ecdc4', marginBottom: '15px' }}>Online Resources</h2>
           <div className="resource-item">
             <h3>National Domestic Violence Website</h3>

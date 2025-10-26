@@ -13,7 +13,6 @@ const RegisterForm = () => {
     password_confirmation: "",
     first_name: "",
     last_name: "",
-    profile_image: "",
     username: "",
   });
 
@@ -23,7 +22,6 @@ const RegisterForm = () => {
     password_confirmation,
     first_name,
     last_name,
-    profile_image,
     username,
   } = formData;
 
@@ -132,6 +130,17 @@ const RegisterForm = () => {
               required
               className="form-input"
             />
+            <div style={{ marginTop: '10px', fontSize: '16px', color: 'rgba(255, 255, 255, 0.8)' }}>
+              <p style={{ marginBottom: '5px', fontWeight: 'bold', fontSize: '16px', color: '#4ecdc4', textDecoration: 'underline' }}>Password Requirements (For Your Safety):</p>
+              <ul style={{ marginLeft: '20px', marginBottom: '10px', fontSize: '14px' }}>
+                <li style={{ marginBottom: '8px' }}>At least 8 characters</li>
+                <li style={{ marginBottom: '8px' }}>Not similar to username/email/name<br /><span style={{ fontSize: '14px', fontStyle: 'italic', color: '#4ecdc4' }}>(Example: If username is "john123", password "john123" would fail)</span></li>
+                <li style={{ marginBottom: '8px' }}>Not a common password<br /><span style={{ fontSize: '14px', fontStyle: 'italic', color: '#4ecdc4' }}>(Examples of common passwords: "password", "123456", "password123")</span></li>
+                <li style={{ marginBottom: '8px' }}>Not all numbers</li>
+                <li style={{ marginBottom: '8px' }}>Mix of letters, numbers, and/or symbols</li>
+              </ul>
+              <p style={{ marginBottom: '8px', fontWeight: 'bold', color: '#4ecdc4', fontStyle: 'italic' }}>Example good passwords:<br /><span style={{ fontSize: '14px', color: '#4ecdc4', marginLeft: '10px' }}>MyPass123! • Safety2024 • Tracker#1 • SecurePass9</span></p>
+            </div>
           </div>
           <div className="form-buttons">
             <button type="submit" disabled={isFormInvalid()} className="form-button">Register</button>

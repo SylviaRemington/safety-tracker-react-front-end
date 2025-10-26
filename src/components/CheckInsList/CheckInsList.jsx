@@ -2,13 +2,17 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
 import checkInsService from "../../services/checkInsService";
+import blueWatercolor from "../../assets/bluewatercolor.jpeg";
 
 const CheckInsList = () => {
   const { user, loading: userLoading } = useContext(UserContext);
   const navigate = useNavigate();
   const [checkIns, setCheckIns] = useState([]);
+  const [filteredCheckIns, setFilteredCheckIns] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [dayTypeFilter, setDayTypeFilter] = useState("");
 
   useEffect(() => {
     // Check if user is logged in
@@ -24,6 +28,7 @@ const CheckInsList = () => {
           setError(null);
           const checkInsData = await checkInsService.getAllCheckIns();
           setCheckIns(checkInsData);
+          setFilteredCheckIns(checkInsData);
         } catch (error) {
           console.error("Error fetching check-ins:", error);
           setError("Failed to load check-ins: " + (error.message || "Unknown error"));
@@ -34,6 +39,41 @@ const CheckInsList = () => {
       fetchCheckIns();
     }
   }, [user, userLoading, navigate]);
+
+  // Filter check-ins based on search term and day type
+  useEffect(() => {
+    let filtered = checkIns;
+
+    // Filter by search term (title and description)
+    if (searchTerm) {
+      filtered = filtered.filter(checkIn => 
+        checkIn.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        checkIn.description.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    // Filter by day type
+    if (dayTypeFilter) {
+      filtered = filtered.filter(checkIn => 
+        checkIn.day_type && checkIn.day_type.includes(dayTypeFilter)
+      );
+    }
+
+    setFilteredCheckIns(filtered);
+  }, [checkIns, searchTerm, dayTypeFilter]);
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleDayTypeChange = (e) => {
+    setDayTypeFilter(e.target.value);
+  };
+
+  const clearFilters = () => {
+    setSearchTerm("");
+    setDayTypeFilter("");
+  };
 
   // Show loading while checking authentication
   if (userLoading) {
@@ -65,14 +105,95 @@ const CheckInsList = () => {
           Add New Check-In
         </button>
       </div>
+
+      {/* Search and Filter Controls */}
+      <div 
+        className="search-container"
+        style={{
+          marginBottom: '30px',
+          backgroundImage: `url(${blueWatercolor})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          position: 'relative',
+          borderRadius: '8px',
+          padding: '20px',
+          textAlign: 'center'
+        }}
+      >
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(150, 206, 180, 0.75)',
+          borderRadius: '8px',
+          zIndex: 1
+        }}></div>
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <style>
+            {`
+              .search-input::placeholder {
+                color: #000 !important;
+                font-weight: bold !important;
+              }
+            `}
+          </style>
+          <div style={{ display: 'flex', gap: '15px', marginBottom: '15px', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <input
+              type="text"
+              placeholder="Search by title or description..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+              className="form-input search-input"
+              style={{ 
+                flex: '1', 
+                minWidth: '200px', 
+                maxWidth: '300px', 
+                color: '#000', 
+                fontWeight: 'bold'
+              }}
+            />
+            <select
+              value={dayTypeFilter}
+              onChange={handleDayTypeChange}
+              className="form-select"
+              style={{ minWidth: '150px', color: '#000', fontWeight: 'bold' }}
+            >
+              <option value="">All Day Types</option>
+              <option value="Challenging">Challenging Day</option>
+              <option value="Normal">Normal Day</option>
+              <option value="Good">Good Day</option>
+            </select>
+            <button 
+              onClick={clearFilters} 
+              className="form-button-cancel"
+              style={{ color: '#000', fontWeight: 'bold' }}
+            >
+              Clear
+            </button>
+          </div>
+          {(searchTerm || dayTypeFilter) && (
+            <p style={{ textAlign: 'center', color: '#000', fontSize: '14px', fontWeight: 'bold' }}>
+              Showing {filteredCheckIns.length} of {checkIns.length} check-ins
+            </p>
+          )}
+        </div>
+      </div>
       
-      {checkIns.length === 0 ? (
+      {filteredCheckIns.length === 0 ? (
         <div className="empty-state">
-          <p>No check-ins available yet.</p>
+          <p>
+            {checkIns.length === 0 
+              ? "No check-ins available yet." 
+              : "No check-ins found with that information."
+            }
+          </p>
         </div>
       ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          {checkIns.map((checkIn) => (
+          {filteredCheckIns.map((checkIn) => (
             <div key={checkIn.id} className="check-in-card"
             onClick={() => navigate(`/check-ins/${checkIn.id}`)}
             >

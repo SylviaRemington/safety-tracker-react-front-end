@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import CheckInsList from "./components/CheckInsList/CheckInsList";
 import CheckInCreate from "./components/CheckInCreate/CheckInCreate";
 import CheckInShow from "./components/CheckInShow/CheckInShow";
+import CheckInEdit from "./components/CheckInEdit/CheckInEdit";
 
 const App = () => {
   return (
@@ -66,6 +67,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <CheckInShow />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/check-ins/:id/edit" 
+          element={
+            <ProtectedRoute>
+              <CheckInEdit />
             </ProtectedRoute>
           } 
         />

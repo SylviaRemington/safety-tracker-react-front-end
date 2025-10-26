@@ -2,6 +2,8 @@ import { getStories } from "../../services/storiesService";
 import { useEffect, useState, useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { UserContext } from "../../contexts/UserContext";
+import blueWatercolor from "../../assets/bluewatercolor.jpeg";
+import pinkWatercolor from "../../assets/pinkwatercolor.jpeg";
 
 const StoriesList = () => {
   const { user, loading: userLoading } = useContext(UserContext);
@@ -68,36 +70,103 @@ const StoriesList = () => {
   }
 
   return (
-      <main className="main-container">
-      <h1 className="welcome-title">Welcome to Safety Tracker</h1>
-      <p className="welcome-subtitle">A place to have a personal, private journal for yourself,</p>
-      <p className="welcome-subtitle">and</p>
-      <p className="welcome-description">To share stories from people like you for inspiration, encouragement, and to know you are not alone.</p>
-      
-      {stories.length === 0 ? (
-        <div className="empty-state">
-          <p>No stories available at the moment.</p>
-        </div>
-      ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          {stories.map((story) => (
-            <div key={story.id} className="story-card">
-              <Link to={`stories/${story.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                <h2 className="story-title">
-                  {story.title || "Untitled Story"}
-                </h2>
-                <p className="story-author">
-                  By: {story.author?.name || "Unknown Author"}
-                </p>
-                <div className="story-content">
-                  {getPreview(story.content)}
-                </div>
-              </Link>
+      <main 
+        className="main-container"
+        style={{
+          backgroundImage: `url(${blueWatercolor})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          position: 'relative'
+        }}
+      >
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(13, 15, 30, 0.7)',
+          zIndex: 1
+        }}></div>
+        <div style={{ position: 'relative', zIndex: 2 }}>
+          <div 
+            style={{
+              backgroundImage: `url(${pinkWatercolor})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              borderRadius: '12px',
+              padding: '30px',
+              marginBottom: '30px',
+              position: 'relative'
+            }}
+          >
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              background: 'rgba(13, 15, 30, 0.6)',
+              borderRadius: '12px',
+              zIndex: 1
+            }}></div>
+            <div style={{ position: 'relative', zIndex: 2 }}>
+              <h1 className="welcome-title">Welcome to Safety Tracker</h1>
+              <p className="welcome-subtitle">A place to have a personal, private journal for yourself,</p>
+              <p className="welcome-subtitle">and</p>
+              <p className="welcome-description">To share stories from people like you for inspiration, encouragement, and to know you are not alone.</p>
             </div>
-          ))}
+          </div>
+          
+          {stories.length === 0 ? (
+            <div className="empty-state">
+              <p>No stories available at the moment.</p>
+            </div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              {stories.map((story) => (
+                <div 
+                  key={story.id} 
+                  className="story-card"
+                  style={{
+                    backgroundImage: `url(${pinkWatercolor})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    position: 'relative'
+                  }}
+                >
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    background: 'rgba(13, 15, 30, 0.6)',
+                    borderRadius: '12px',
+                    zIndex: 1
+                  }}></div>
+                  <div style={{ position: 'relative', zIndex: 2 }}>
+                    <Link to={`stories/${story.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                      <h2 className="story-title">
+                        {story.title || "Untitled Story"}
+                      </h2>
+                      <p className="story-author">
+                        By: {story.author?.name || "Unknown Author"}
+                      </p>
+                      <div className="story-content">
+                        {getPreview(story.content)}
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-      )}
-    </main>
+      </main>
   );
 };
 

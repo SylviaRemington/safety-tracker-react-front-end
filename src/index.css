@@ -348,25 +348,87 @@ input:focus, textarea:focus, select:focus {
   color: white;
 }
 
-/* Welcome Messages */
-.welcome-title {
-  text-align: center;
-  margin-bottom: 30px;
-  color: white;
-}
+        /* Welcome Messages */
+        .welcome-title {
+          text-align: center;
+          margin-bottom: 30px;
+          color: white;
+        }
 
-.welcome-subtitle {
-  text-align: center;
-  margin-bottom: 10px;
-  opacity: 0.8;
-  font-size: 1.2em;
-  font-family: 'Georgia', 'Times New Roman', serif;
-}
+        .welcome-subtitle {
+          text-align: center;
+          margin-bottom: 10px;
+          opacity: 0.8;
+          font-size: 1.2em;
+          font-family: 'Georgia', 'Times New Roman', serif;
+        }
 
-.welcome-description {
-  text-align: center;
-  margin-bottom: 40px;
-  opacity: 0.8;
-  font-size: 1.2em;
-  font-family: 'Georgia', 'Times New Roman', serif;
-}
+        .welcome-description {
+          text-align: center;
+          margin-bottom: 40px;
+          opacity: 0.8;
+          font-size: 1.2em;
+          font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        /* Emergency Resources Styles */
+        .emergency-section {
+          margin-bottom: 30px;
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 8px;
+          border-left: 4px solid rgba(255, 255, 255, 0.3);
+          text-align: center;
+        }
+
+        .resource-item {
+          margin-bottom: 20px;
+          padding: 15px;
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 6px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          text-align: center;
+        }
+
+        .resource-item h3 {
+          margin: 0 0 8px 0;
+          color: white;
+          font-size: 1.1em;
+        }
+
+        .phone-number {
+          font-size: 1.3em;
+          font-weight: bold;
+          color: #4ecdc4;
+          margin: 8px 0;
+          font-family: 'Courier New', monospace;
+        }
+
+        .website-link {
+          font-size: 1.1em;
+          font-weight: bold;
+          color: #4ecdc4;
+          margin: 8px 0;
+          text-decoration: underline;
+        }
+
+        .resource-description {
+          margin: 8px 0 0 0;
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 0.9em;
+          line-height: 1.4;
+        }
+
+        .safety-note {
+          margin-top: 30px;
+          padding: 20px;
+          background: rgba(150, 206, 180, 0.1);
+          border-radius: 8px;
+          border: 1px solid rgba(150, 206, 180, 0.3);
+          text-align: center;
+        }
+
+        .safety-note p {
+          margin: 0;
+          color: rgba(255, 255, 255, 0.9);
+        }

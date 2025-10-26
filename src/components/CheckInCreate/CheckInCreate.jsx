@@ -35,7 +35,15 @@ const CheckInCreate = () => {
     evt.preventDefault();
     try {
       setError("");
-      await checkInsService.createCheckIn(formData);
+      
+      const submitData = {
+        ...formData,
+        reaction_level: formData.reaction_level ? parseFloat(formData.reaction_level) : null,
+        effectiveness: formData.effectiveness ? parseFloat(formData.effectiveness) : null,
+        owner: user.id
+      };
+      
+      await checkInsService.createCheckIn(submitData);
       navigate("/check-ins");
     } catch (error) {
       console.error("Error creating check-in:", error);

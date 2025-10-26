@@ -76,10 +76,11 @@ const CheckInEdit = () => {
         ...formData,
         reaction_level: formData.reaction_level ? parseFloat(formData.reaction_level) : null,
         effectiveness: formData.effectiveness ? parseFloat(formData.effectiveness) : null,
-        owner: user.id  // Add owner ID for the update
+        owner: user.id
       };
       
       console.log("Sending update data:", submitData);
+      console.log("User ID:", user.id);
       await checkInsService.updateCheckIn(id, submitData);
       navigate(`/check-ins/${id}`);
     } catch (error) {

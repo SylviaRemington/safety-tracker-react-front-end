@@ -111,8 +111,8 @@ const EmergencyResources = () => {
             zIndex: 1
           }}></div>
                   <div style={{ position: 'relative', zIndex: 2 }}>
-                    <h3 style={{ color: '#96ceb4', marginBottom: '10px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>Safety Note</h3>
-                    <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
+                    <h3 style={{ color: '#96ceb4', marginBottom: '10px', textShadow: '3px 3px 8px rgba(0, 0, 0, 1), 1px 1px 2px rgba(0, 0, 0, 1)' }}>Safety Note</h3>
+                    <p style={{ fontSize: '14px', lineHeight: '1.5', color: 'rgba(255, 255, 255, 1)' }}>
                       If you're using this app on a shared device, please clear your browser history after viewing this page. 
                       Your safety is the most important.
                     </p>

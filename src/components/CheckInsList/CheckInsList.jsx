@@ -117,7 +117,8 @@ const CheckInsList = () => {
           position: 'relative',
           borderRadius: '8px',
           padding: '20px',
-          textAlign: 'center'
+          textAlign: 'center',
+          fontWeight: 'bold'
         }}
       >
         <div style={{
@@ -134,7 +135,7 @@ const CheckInsList = () => {
           <style>
             {`
               .search-input::placeholder {
-                color: #000 !important;
+                color: #1a1a1a !important;
                 font-weight: bold !important;
               }
             `}
@@ -150,7 +151,7 @@ const CheckInsList = () => {
                 flex: '1', 
                 minWidth: '200px', 
                 maxWidth: '300px', 
-                color: '#000', 
+                color: '#1a1a1a', 
                 fontWeight: 'bold'
               }}
             />
@@ -158,7 +159,7 @@ const CheckInsList = () => {
               value={dayTypeFilter}
               onChange={handleDayTypeChange}
               className="form-select"
-              style={{ minWidth: '150px', color: '#000', fontWeight: 'bold' }}
+              style={{ minWidth: '150px', color: '#1a1a1a', fontWeight: 'bold' }}
             >
               <option value="">All Day Types</option>
               <option value="Challenging">Challenging Day</option>
@@ -168,13 +169,13 @@ const CheckInsList = () => {
             <button 
               onClick={clearFilters} 
               className="form-button-cancel"
-              style={{ color: '#000', fontWeight: 'bold' }}
+              style={{ color: '#1a1a1a', fontWeight: 'bold' }}
             >
               Clear
             </button>
           </div>
           {(searchTerm || dayTypeFilter) && (
-            <p style={{ textAlign: 'center', color: '#000', fontSize: '14px', fontWeight: 'bold' }}>
+            <p style={{ textAlign: 'center', color: '#1a1a1a', fontSize: '14px', fontWeight: 'bold' }}>
               Showing {filteredCheckIns.length} of {checkIns.length} check-ins
             </p>
           )}
@@ -185,7 +186,7 @@ const CheckInsList = () => {
         <div className="empty-state">
           <p>
             {checkIns.length === 0 
-              ? "No check-ins available yet." 
+              ? "No check-ins created yet." 
               : "No check-ins found with that information."
             }
           </p>

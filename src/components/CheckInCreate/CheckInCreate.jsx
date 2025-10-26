@@ -61,7 +61,8 @@ const CheckInCreate = () => {
         padding: '30px',
         border: '1px solid rgba(255, 255, 255, 0.2)'
       }}>
-        <h1 style={{ textAlign: 'center', marginBottom: '30px', color: 'white' }}>Create Daily Check-In</h1>
+        <h1 style={{ textAlign: 'center', marginBottom: '10px', color: 'white' }}>Create Daily Check-In</h1>
+        <p style={{ textAlign: 'center', marginBottom: '30px', color: 'rgba(255, 255, 255, 0.8)', fontSize: '16px', fontWeight: 'bold' }}>(All fields are required for check-in to submit)</p>
         {error && <p style={{ color: '#ff6b6b', background: 'rgba(255, 107, 107, 0.1)', padding: '10px', borderRadius: '6px', textAlign: 'center' }}>{error}</p>}
         
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>

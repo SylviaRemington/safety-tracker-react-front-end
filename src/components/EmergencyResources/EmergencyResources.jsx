@@ -113,7 +113,7 @@ const EmergencyResources = () => {
             <h3 style={{ color: '#96ceb4', marginBottom: '10px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>Safety Note</h3>
             <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
               If you're using this app on a shared device, please clear your browser history after viewing this page. 
-              Your safety is the most important thing.
+              Your safety is the most important.
             </p>
           </div>
         </div>

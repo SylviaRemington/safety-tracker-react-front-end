@@ -130,7 +130,7 @@ const RegisterForm = () => {
               required
               className="form-input"
             />
-            <div style={{ marginTop: '10px', fontSize: '16px', color: 'rgba(255, 255, 255, 0.8)' }}>
+            <div style={{ marginTop: '10px', fontSize: '16px', color: 'rgba(255, 255, 255, 0.8)', backgroundColor: 'rgba(0, 0, 0, 0.3)', padding: '15px', borderRadius: '8px', border: '1px solid rgba(78, 205, 196, 0.3)' }}>
               <p style={{ marginBottom: '5px', fontWeight: 'bold', fontSize: '16px', color: '#4ecdc4', textDecoration: 'underline' }}>Password Requirements (For Your Safety):</p>
               <ul style={{ marginLeft: '20px', marginBottom: '10px', fontSize: '14px' }}>
                 <li style={{ marginBottom: '8px' }}>At least 8 characters</li>
@@ -140,6 +140,7 @@ const RegisterForm = () => {
                 <li style={{ marginBottom: '8px' }}>Mix of letters, numbers, and/or symbols</li>
               </ul>
               <p style={{ marginBottom: '8px', fontWeight: 'bold', color: '#4ecdc4', fontStyle: 'italic' }}>Example good passwords:<br /><span style={{ fontSize: '14px', color: '#4ecdc4', marginLeft: '10px' }}>MyPass123! • Safety2024 • Tracker#1 • SecurePass9</span></p>
+              <br />
             </div>
           </div>
           <div className="form-buttons">

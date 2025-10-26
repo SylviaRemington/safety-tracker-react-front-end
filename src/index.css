@@ -1,4 +1,6 @@
-/* Global Styles */
+/* =================================================================================
+   GLOBAL STYLES - styles that apply to my entire website using universal selector
+   ================================================================================= */
 * {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   box-sizing: border-box;
@@ -12,6 +14,9 @@ body {
   line-height: 1.4;
 }
 
+/* =================================================================================
+   TEXT-RELATED STYLES - fonts, sizes, colors
+   ================================================================================= */
 /* Links */
 a {
   color: #fff;
@@ -22,6 +27,9 @@ a:hover {
   color: #ccc;
 }
 
+/* =================================================================================
+   FORM ELEMENTS - clickable & typeable things on my app like buttons & text boxes & dropdown menus that users interact with
+   ================================================================================= */
 /* Buttons */
 button {
   background: rgba(255, 255, 255, 0.15);
@@ -77,6 +85,9 @@ input:focus, textarea:focus, select:focus {
   background: rgba(255, 255, 255, 0.15);
 }
 
+/* =================================================================================
+   LAYOUT - the major structural elements that organize my page
+   ================================================================================= */
 /* NavBar Styles */
 .navbar {
   background: #2D1B3D;
@@ -125,6 +136,9 @@ input:focus, textarea:focus, select:focus {
   margin: 80px auto 0;
 }
 
+/* =================================================================================
+   COMPONENT STYLES - check-in forms, story cards, and welcome messages / the different boxes and sections on webpage
+   ================================================================================= */
 /* Card Styles */
 .card {
   background: rgba(255, 255, 255, 0.1);
@@ -235,6 +249,9 @@ input:focus, textarea:focus, select:focus {
   cursor: pointer;
 }
 
+/* =================================================================================
+   Helper Styles - reusable helper styles that are used over and over like error messages, loading messages, empty page messages
+   ================================================================================= */
 /* Error Messages */
 .error-message {
   color: #ff6b6b;

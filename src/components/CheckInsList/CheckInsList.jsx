@@ -99,7 +99,6 @@ const CheckInsList = () => {
       <p className="welcome-description" style={{ textAlign: 'center', marginBottom: '30px' }}>
         These are personal, private check-ins aka journal entries only for you to see & so that you can track what happens over time.
       </p>
-      
       <div className="add-button">
         <button onClick={() => navigate("/check-ins/create")}>
           Add New Check-In

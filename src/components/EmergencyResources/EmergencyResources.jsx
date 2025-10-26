@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import blueWatercolor from "../../assets/bluewatercolor.jpeg";
+import logo from "../../assets/logo.jpeg";
 
 const EmergencyResources = () => {
   const { user, loading: userLoading } = useContext(UserContext);
@@ -109,14 +110,29 @@ const EmergencyResources = () => {
             borderRadius: '8px',
             zIndex: 1
           }}></div>
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <h3 style={{ color: '#96ceb4', marginBottom: '10px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>Safety Note</h3>
-            <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
-              If you're using this app on a shared device, please clear your browser history after viewing this page. 
-              Your safety is the most important.
-            </p>
-          </div>
+                  <div style={{ position: 'relative', zIndex: 2 }}>
+                    <h3 style={{ color: '#96ceb4', marginBottom: '10px', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>Safety Note</h3>
+                    <p style={{ fontSize: '14px', lineHeight: '1.5' }}>
+                      If you're using this app on a shared device, please clear your browser history after viewing this page. 
+                      Your safety is the most important.
+                    </p>
+                  </div>
         </div>
+      </div>
+      
+      <div style={{ textAlign: 'center', marginTop: '10px', width: '100%' }}>
+        <img 
+          src={logo} 
+          alt="Safety Tracker Logo" 
+          style={{ 
+            width: '300px', 
+            height: 'auto',
+            filter: 'hue-rotate(280deg) saturate(1.5) brightness(0.8)',
+            objectFit: 'cover',
+            objectPosition: 'center',
+            clipPath: 'inset(10% 0 10% 0)'
+          }} 
+        />
       </div>
     </div>
   );

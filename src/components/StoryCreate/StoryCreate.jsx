@@ -74,6 +74,10 @@ const StoryCreate = () => {
       <main className="main-container">
         <div className="form-container">
         <h1 className="form-title">Create Story</h1>
+        <p className="welcome-description" style={{ textAlign: 'center', marginBottom: '20px' }}>
+          Create a story to share with others to inspire...<br />
+          or express what happened to you so others feel less alone.
+        </p>
         {error && <p className="error-message">{error}</p>}
         
         <form onSubmit={handleSubmit} className="form-field">

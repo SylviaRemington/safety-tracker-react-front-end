@@ -12,4 +12,15 @@ const getAuthors = async () => {
   }
 };
 
-export { getAuthors };
+const getAuthor = async (id) => {
+  try {
+    const res = await axios.get(`${BASE_URL}/${id}`);
+    const data = await res.data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching author:", error);
+    throw error;
+  }
+};
+
+export { getAuthors, getAuthor };

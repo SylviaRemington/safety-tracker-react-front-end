@@ -123,7 +123,7 @@ const EmergencyResources = () => {
       <div style={{ textAlign: 'center', marginTop: '10px', width: '100%' }}>
         <img 
           src={logo} 
-          alt="Safety Tracker Logo" 
+          alt="Safety Tracker Logo with woman inside of a heart looking upwards in hope" 
           style={{ 
             width: '300px', 
             height: 'auto',

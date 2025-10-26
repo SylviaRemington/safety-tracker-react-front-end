@@ -57,7 +57,7 @@ const CheckInCreate = () => {
     <main className="main-container">
       <div className="form-container">
         <h1 className="form-title">Create Daily Check-In</h1>
-        <p className="required-message">(All fields are required for check-in to submit)</p>
+        <p className="required-message">(All fields are necessary for check-in to submit)</p>
         {error && <p className="error-message">{error}</p>}
         
         <form onSubmit={handleSubmit} className="form-field">
@@ -187,6 +187,7 @@ const CheckInCreate = () => {
 
           <div className="form-buttons">
             <button type="submit" className="form-button">Create Check-In</button>
+            <button type="button" onClick={() => navigate("/check-ins")} className="form-button">Go To All Check-Ins</button>
             <button type="button" onClick={() => navigate("/check-ins")} className="form-button-cancel">Cancel</button>
           </div>
         </form>

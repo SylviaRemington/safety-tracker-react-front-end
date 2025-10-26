@@ -37,7 +37,17 @@ const RegisterForm = () => {
       setUser(newUser);
       navigate("/");
     } catch (err) {
-      setMessage(err.message);
+      console.error("Registration error:", err);
+      
+      // Check if it's a password validation error (422 status)
+      if (err.response?.status === 422) {
+        setMessage("Password doesn't meet requirements. Please check the password requirements below and try again.");
+      } else if (err.response?.data?.password) {
+        // If backend sends specific password errors
+        setMessage("Password doesn't meet requirements. Please check the password requirements below and try again.");
+      } else {
+        setMessage(err.message || "Registration failed. Please try again.");
+      }
     }
   };
 

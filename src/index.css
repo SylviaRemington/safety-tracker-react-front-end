@@ -461,3 +461,21 @@ input:focus, textarea:focus, select:focus {
           font-size: 0.9em;
           font-style: italic;
         }
+
+        /* Wellness Tips */
+        .construction-message {
+          text-align: center;
+          padding: 40px 20px;
+        }
+
+        .construction-message h2 {
+          color: #4ecdc4;
+          font-size: 2em;
+          margin-bottom: 20px;
+        }
+
+        .construction-message p {
+          color: white;
+          font-size: 1.5em;
+          font-weight: bold;
+        }

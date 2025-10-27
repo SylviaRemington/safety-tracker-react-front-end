@@ -15,6 +15,7 @@ import CheckInEdit from "./components/CheckInEdit/CheckInEdit";
 import EmergencyResources from "./components/EmergencyResources/EmergencyResources";
 import AuthorsList from "./components/AuthorsList/AuthorsList";
 import AuthorShow from "./components/AuthorShow/AuthorShow";
+import WellnessTips from "./components/WellnessTips/WellnessTips";
 
 const App = () => {
   return (
@@ -102,6 +103,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <AuthorShow />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/wellness-tips" 
+          element={
+            <ProtectedRoute>
+              <WellnessTips />
             </ProtectedRoute>
           } 
         />

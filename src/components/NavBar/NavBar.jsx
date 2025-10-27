@@ -30,6 +30,9 @@ const NavBar = () => {
             <Link to="/authors">Authors</Link>
           </li>
           <li>
+            <Link to="/wellness-tips">Wellness Tips</Link>
+          </li>
+          <li>
             <Link to="/emergency-resources">Resources</Link>
           </li>
           <li>

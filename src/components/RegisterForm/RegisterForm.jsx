@@ -144,8 +144,8 @@ const RegisterForm = () => {
               <p style={{ marginBottom: '5px', fontWeight: 'bold', fontSize: '16px', color: '#4ecdc4', textDecoration: 'underline' }}>Password Requirements (For Your Safety):</p>
               <ul style={{ marginLeft: '20px', marginBottom: '10px', fontSize: '14px' }}>
                 <li style={{ marginBottom: '8px' }}>At least 8 characters</li>
-                <li style={{ marginBottom: '8px' }}>Not similar to username/email/name<br /><span style={{ fontSize: '14px', fontStyle: 'italic', color: '#4ecdc4' }}>(Example: If username is "john123", password "john123" would fail)</span></li>
-                <li style={{ marginBottom: '8px' }}>Not a common password<br /><span style={{ fontSize: '14px', fontStyle: 'italic', color: '#4ecdc4' }}>(Examples of common passwords: "password", "123456", "password123")</span></li>
+                <li style={{ marginBottom: '8px' }}>Not similar to username/email/name<br /><span style={{ fontSize: '12px', fontStyle: 'italic', color: '#4ecdc4' }}>(Example: If username is "john123", password "john123" would fail)</span></li>
+                <li style={{ marginBottom: '8px' }}>Not a common password<br /><span style={{ fontSize: '12px', fontStyle: 'italic', color: '#4ecdc4' }}>(Examples of common passwords: password, 123456, password123)</span></li>
                 <li style={{ marginBottom: '8px' }}>Not all numbers</li>
                 <li style={{ marginBottom: '8px' }}>Mix of letters, numbers, and/or symbols</li>
               </ul>

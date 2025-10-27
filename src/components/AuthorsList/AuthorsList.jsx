@@ -23,6 +23,7 @@ const AuthorsList = () => {
           setLoading(true);
           setError(null);
           const authorsData = await getAuthors();
+          console.log("Authors data:", authorsData);
           setAuthors(authorsData);
         } catch (error) {
           console.error("Error fetching authors:", error);
@@ -67,7 +68,9 @@ const AuthorsList = () => {
           </div>
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-            {authors.map((author) => (
+            {authors.map((author) => {
+              console.log("Individual author:", author);
+              return (
               <div key={author.id} className="author-card">
                 <Link to={`/authors/${author.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <h3 className="author-name">{author.name}</h3>
@@ -76,7 +79,8 @@ const AuthorsList = () => {
                   </p>
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>

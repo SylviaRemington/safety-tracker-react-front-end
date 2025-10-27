@@ -6,7 +6,7 @@
 ## Link to:
 - Back End Github Repo: https://github.com/SylviaRemington/safety-tracker-django-back-end
 - View Site: Front End Repo Link - https://github.com/SylviaRemington/safety-tracker-react-front-end
-- Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials)
+- Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials) - https://app.excalidraw.com/l/ArZSbb1GP9u/6bZiYhm3CCr
 - Deployed App
 
 ## Information/Inspiration

@@ -19,7 +19,7 @@ const CheckInCreate = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Check if user is logged in
+    // Check to see if the user is logged in
     if (!userLoading && !user) {
       navigate("/login");
       return;
@@ -56,7 +56,7 @@ const CheckInCreate = () => {
     return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Loading...</div>;
   }
 
-  // If not logged in, this will redirect to login
+  // If not logged in, this will redirect user to the login page
   if (!user) {
     return <div style={{ textAlign: 'center', marginTop: '100px', color: 'white' }}>Redirecting to login...</div>;
   }

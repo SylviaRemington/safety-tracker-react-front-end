@@ -1,5 +1,4 @@
 /* Blue Gradient Background CSS */
-/* Created for: Safety Tracker React Frontend */
 
 /* Main blue gradient background */
 .blue-gradient-background {
@@ -99,7 +98,7 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Error message styling */
+/* styling for error messages */
 .glass-error {
   color: #ff6b6b;
   background: rgba(255, 107, 107, 0.1);
@@ -109,7 +108,7 @@
   border: 1px solid rgba(255, 107, 107, 0.3);
 }
 
-/* Success message styling */
+/* styling for success messages */
 .glass-success {
   color: #4ade80;
   background: rgba(74, 222, 128, 0.1);
@@ -133,27 +132,3 @@
     padding: 20px;
   }
 }
-
-/* Usage Examples */
-/*
-HTML Structure:
-<div class="blue-gradient-background">
-  <div class="glass-form-card">
-    <h1 style="text-align: center; color: white; margin-bottom: 30px;">Your Title</h1>
-    <form class="glass-form">
-      <div>
-        <label>Email:</label>
-        <input type="email" placeholder="Enter your email" />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" placeholder="Enter your password" />
-      </div>
-      <div style="display: flex; gap: 10px; justify-content: center;">
-        <button type="submit">Submit</button>
-        <button type="button" class="secondary">Cancel</button>
-      </div>
-    </form>
-  </div>
-</div>
-*/

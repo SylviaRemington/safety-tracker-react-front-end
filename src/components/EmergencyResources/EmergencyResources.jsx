@@ -6,12 +6,12 @@ import logo from "../../assets/logo.jpeg";
 const EmergencyResources = () => {
   const { user, loading: userLoading } = useContext(UserContext);
 
-  // Show loading while checking authentication
+  // Showing loading while checking authentication
   if (userLoading) {
     return <div className="loading">Loading...</div>;
   }
 
-  // If not logged in, redirect to login
+  // If not logged in, this redirect to the login page
   if (!user) {
     return <div className="loading">Redirecting to login...</div>;
   }
@@ -139,3 +139,5 @@ const EmergencyResources = () => {
 };
 
 export default EmergencyResources;
+
+

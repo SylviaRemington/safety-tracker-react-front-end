@@ -49,7 +49,7 @@ const App = () => {
           }
         />
 
-        {/* Check-Ins functionality routes */}
+        {/* Check-Ins functionality / routes */}
         <Route 
           path="/check-ins" 
           element={

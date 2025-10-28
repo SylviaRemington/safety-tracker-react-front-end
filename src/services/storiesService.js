@@ -1,7 +1,7 @@
 import axios from "./axiosConfig";
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/stories`;
 
-// Get all stories (public)
+// get all stories (public)
 const getStories = async () => {
   try {
     const res = await axios.get(`${BASE_URL}/`);
@@ -12,7 +12,7 @@ const getStories = async () => {
   }
 };
 
-// Get one story by ID (public)
+// get one story by ID (public)
 const getStoryById = async (id) => {
   try {
     const res = await axios.get(`${BASE_URL}/${id}/`);
@@ -23,26 +23,26 @@ const getStoryById = async (id) => {
   }
 };
 
-// Update story (auth, owner only)
+// update story (auth, owner only)
 const updateStory = async (id, story) => {
   try {
     const storyData = {
       title: story.title,
-      author: story.authorId,  // Send author ID directly
+      author: story.authorId,  // Send the author ID directly
       content: story.content,
-      owner: story.ownerId,  // Add owner field
+      owner: story.ownerId,  // Add the owner field
     };
-    console.log("Sending update data:", storyData); // Debug log
-    console.log("Author ID type:", typeof story.authorId, "Value:", story.authorId); // Debug log
-    console.log("Story ID:", id); // Debug log
+    console.log("Sending update data:", storyData); // debugging 
+    console.log("Author ID type:", typeof story.authorId, "Value:", story.authorId); // debugging
+    console.log("Story ID:", id); // debugging
     const res = await axios.put(`${BASE_URL}/${id}/`, storyData);
     return res.data;
   } catch (error) {
     console.error("Error updating story:", error);
-    console.error("Response data:", error.response?.data); // Debug log
-    console.error("Response status:", error.response?.status); // Debug log
-    console.error("Response headers:", error.response?.headers); // Debug log
-    console.error("Full error response:", error.response); // Debug log
+    console.error("Response data:", error.response?.data); // debugging
+    console.error("Response status:", error.response?.status); // debugging
+    console.error("Response headers:", error.response?.headers); // debugging
+    console.error("Full error response:", error.response); // debugging
     throw error;
   }
 };
@@ -56,21 +56,21 @@ const deleteStory = async (id) => {
   }
 };
 
-// Create story (auth, adds owner)
+// creating story (auth, adds owner)
 const createStory = async (story) => {
   try {
-    // Sending story with author ID
+    // sending story with author ID
     const storyData = {
       title: story.title,
-      author: story.authorId, // Send author ID directly
+      author: story.authorId, // send an author ID directly
       content: story.content,
     };
-    console.log("Sending create data:", storyData); // Debug log
+    console.log("Sending create data:", storyData); // debugging
     const res = await axios.post(`${BASE_URL}/`, storyData);
     return res.data;
   } catch (error) {
     console.error("Error creating story:", error);
-    console.error("Response data:", error.response?.data); // Debug log
+    console.error("Response data:", error.response?.data); // debugging
     throw error;
   }
 };

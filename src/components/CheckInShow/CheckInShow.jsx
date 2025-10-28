@@ -18,7 +18,7 @@ const CheckInShow = () => {
         setError(null);
         const checkInData = await checkInsService.getCheckIn(id);
         
-        // Check if user is the owner of this check-in
+        // Checking if the user is the owner of the particular check-in they are trying to get to
         if (user && checkInData.owner && user.id !== checkInData.owner.id) {
           setError("You don't have permission to view this check-in");
           return;
@@ -66,7 +66,7 @@ const CheckInShow = () => {
       <div className="card">
         <h1 className="story-title">{checkIn.title || "No title available"}</h1>
         
-        {/* Created Date */}
+        {/* Date - adding date to the checkin so it can be official what day it is. */}
         <p style={{ marginBottom: '25px', color: 'rgba(255, 255, 255, 0.8)' }}>
           <strong>Created:</strong> {new Date(checkIn.created_at || Date.now()).toLocaleDateString()}
         </p>
@@ -82,7 +82,7 @@ const CheckInShow = () => {
           <p><strong>Effectiveness:</strong> {checkIn.effectiveness || "Not specified"}</p>
         </div>
         
-        {/* Navigation and Action Buttons - moved to bottom */}
+        {/* Navigation and Action Buttons */}
         <div style={{ marginTop: '30px', display: 'flex', gap: '10px', flexWrap: 'nowrap', justifyContent: 'center' }}>
           <button onClick={() => navigate("/check-ins/create")}>Add New Check-In</button>
           <button onClick={() => navigate("/check-ins")}>All Check-Ins</button>

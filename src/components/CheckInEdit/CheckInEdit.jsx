@@ -21,7 +21,7 @@ const CheckInEdit = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    // Check if user is logged in
+    // Checking if user is logged in
     if (!userLoading && !user) {
       navigate("/login");
       return;
@@ -34,7 +34,7 @@ const CheckInEdit = () => {
           setError("");
           const checkInData = await checkInsService.getCheckIn(id);
           
-          // Check if user is the owner of this check-in
+          // Checking if user is the owner of this check-in prior to allowing them access
           if (checkInData.owner && user.id !== checkInData.owner.id) {
             setError("You don't have permission to edit this check-in");
             return;
@@ -71,7 +71,7 @@ const CheckInEdit = () => {
     try {
       setError("");
       
-      // Convert string values to numbers for numeric fields
+      // Converting string values to numbers for numbers
       const submitData = {
         ...formData,
         reaction_level: formData.reaction_level ? parseFloat(formData.reaction_level) : null,
@@ -90,12 +90,12 @@ const CheckInEdit = () => {
     }
   };
 
-  // Show loading while checking authentication
+  // Showing loading while checking authentication
   if (userLoading) {
     return <div className="loading">Loading...</div>;
   }
 
-  // If not logged in, this will redirect to login
+  // If user is not logged in, this will redirect to login
   if (!user) {
     return <div className="loading">Redirecting to login...</div>;
   }

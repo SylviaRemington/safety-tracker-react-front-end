@@ -15,7 +15,7 @@ const LoginForm = () => {
   });
 
   useEffect(() => {
-    // If user is already logged in, redirect to home page
+    // If user is already logged in, this redirects to the home page where there are user stories for all users to see.
     if (!loading && user) {
       navigate("/");
     }
@@ -38,12 +38,12 @@ const LoginForm = () => {
     }
   };
 
-  // Show loading while checking authentication
+  // Show loading while checking for authentication.
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
 
-  // If user is logged in, this will redirect to home
+  // If the user is logged in, this will redirect to the homepage.
   if (user) {
     return <div className="loading">Redirecting...</div>;
   }

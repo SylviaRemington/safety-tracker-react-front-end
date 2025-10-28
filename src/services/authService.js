@@ -3,13 +3,13 @@ import { getUser } from "./userService";
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/auth`;
 
-// Register function that already uses axios
+// This is the register function that already uses axios.
 const register = async (formData) => {
   try {
     await axios.post(`${BASE_URL}/register/`, formData);
 
     // Login function
-    // After successful registration, automatically log the user in
+    // After successful registration, this automatically logs the user in.
     const loginData = {
       email: formData.email,
       password: formData.password,
@@ -31,7 +31,7 @@ const login = async (formData) => {
     if (data.token) {
       localStorage.setItem("token", data.token);
 
-      // Fetch the full user data from /auth/user
+      // fetching the full user data from /auth/user
       const user = await getUser();
 
       if (!user) {

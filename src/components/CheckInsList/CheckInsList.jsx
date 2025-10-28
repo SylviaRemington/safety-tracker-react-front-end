@@ -15,7 +15,7 @@ const CheckInsList = () => {
   const [dayTypeFilter, setDayTypeFilter] = useState("");
 
   useEffect(() => {
-    // Check if user is logged in
+    // Checking if user is logged in
     if (!userLoading && !user) {
       navigate("/login");
       return;
@@ -40,11 +40,11 @@ const CheckInsList = () => {
     }
   }, [user, userLoading, navigate]);
 
-  // Filter check-ins based on search term and day type
+  // Adding a filter for the check-ins based on searching for a word 
   useEffect(() => {
     let filtered = checkIns;
 
-    // Filter by search term (title and description)
+    // Filter by search term of title and/or description
     if (searchTerm) {
       filtered = filtered.filter(checkIn => 
         checkIn.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

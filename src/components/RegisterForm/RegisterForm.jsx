@@ -39,11 +39,11 @@ const RegisterForm = () => {
     } catch (err) {
       console.error("Registration error:", err);
       
-      // Check if it's a password validation error (422 status)
+      // Checking if it's a password validation error (422 status if the password doesn't fit the parameters / added parameters on login page because of this)
       if (err.response?.status === 422) {
         setMessage("Password doesn't meet requirements. Please check the password requirements below and try again.");
       } else if (err.response?.data?.password) {
-        // If backend sends specific password errors
+        // Sending a password error message so the user know's what's up.
         setMessage("Password doesn't meet requirements. Please check the password requirements below and try again.");
       } else {
         setMessage(err.message || "Registration failed. Please try again.");

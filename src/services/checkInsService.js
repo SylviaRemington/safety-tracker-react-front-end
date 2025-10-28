@@ -2,7 +2,7 @@ import axios from "./axiosConfig";
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/check_ins`;
 
 const checkInsService = {
-  // Get all check-ins for the logged-in user
+  // get all check-ins for the logged-in user
   getAllCheckIns: async () => {
     try {
       const res = await axios.get(`${BASE_URL}/`);
@@ -13,7 +13,7 @@ const checkInsService = {
     }
   },
 
-  // Get a single check-in by ID
+  // get a single check-in by ID
   getCheckIn: async (id) => {
     try {
       const res = await axios.get(`${BASE_URL}/${id}/`);
@@ -24,7 +24,7 @@ const checkInsService = {
     }
   },
 
-  // Create a new check-in
+  // create a new check-in
   createCheckIn: async (checkIn) => {
     try {
       const res = await axios.post(`${BASE_URL}/`, checkIn);
@@ -35,7 +35,7 @@ const checkInsService = {
     }
   },
 
-  // Update an existing check-in
+  // update an existing check-in
   updateCheckIn: async (id, checkIn) => {
     try {
       const res = await axios.put(`${BASE_URL}/${id}/`, checkIn);
@@ -46,7 +46,7 @@ const checkInsService = {
     }
   },
 
-  // Delete a check-in
+  // delete a check-in
   deleteCheckIn: async (id) => {
     try {
       const res = await axios.delete(`${BASE_URL}/${id}/`);

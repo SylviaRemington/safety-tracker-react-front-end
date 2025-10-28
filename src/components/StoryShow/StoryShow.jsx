@@ -12,7 +12,7 @@ import { getAuthors } from "../../services/authorsService";
 // for creating a new author
 import axios from "../../services/axiosConfig";
 
-// Starts the StoryShow page
+// starts the StoryShow page
 const StoryShow = () => {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
@@ -44,7 +44,7 @@ const StoryShow = () => {
         setAuthors(authorsData);
         setFormData({
           title: storyData.title || "",
-          // using author id as a string for form
+          // using author id as a string for the form
           author: storyData.author ? String(storyData.author.id) : "", 
           newAuthor: "",
           content: storyData.content || "",
@@ -96,11 +96,11 @@ const StoryShow = () => {
       await updateStory(id, {
         title: formData.title,
         content: formData.content,
-        authorId, // <--- Send as authorId
-        ownerId: user.id // <--- Add owner ID
+        authorId, 
+        ownerId: user.id 
       });
       setIsEditing(false);
-      // redirect to main dashboard after successful edit
+      // redirects to main dashboard after successful edit
       navigate("/");
     } catch (error) {
       console.error("Error updating story:", error);
@@ -108,13 +108,13 @@ const StoryShow = () => {
     }
   };
 
-  // Deletes Story when person clicks on delete
+  // deletes story when user clicks on delete
   const handleDeleteStory = async () => {
-    // Show confirmation dialog
+    // shows confirmation box that the user is about to delete and double checking before deletion
     const confirmed = window.confirm("Are you sure you'd like to delete this story? This action cannot be undone.");
     
     if (!confirmed) {
-      return; // User cancelled, don't delete
+      return; // User cancelled, so don't delete
     }
     
     try {
@@ -127,7 +127,7 @@ const StoryShow = () => {
     }
   };
 
-  // Showing if loading or there's an error
+  // Showing if loading or if there's an error
   // Doing a loading check
   if (loading) { 
     return <div>Loading story...</div>;

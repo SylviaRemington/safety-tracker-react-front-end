@@ -28,7 +28,7 @@ const AuthorShow = () => {
     fetchAuthor();
   }, [id]);
 
-  // Show loading while checking authentication
+  // Showing loading while checking authentication
   if (userLoading || loading) {
     return <div className="loading">Loading...</div>;
   }
@@ -39,12 +39,12 @@ const AuthorShow = () => {
     return <div className="loading">Redirecting to login...</div>;
   }
 
-  // If there's an error, display it
+  // If there's an error, display the error
   if (error) {
     return <div className="loading">Error: {error}</div>;
   }
 
-  // If author data is not yet loaded, return loading state
+  // If author data is not yet loaded, it will return to loading state
   if (!author) {
     return <div className="loading">Loading author details...</div>;
   }

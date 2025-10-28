@@ -11,7 +11,7 @@ const AuthorsList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Check if user is logged in
+    // Checking to see if user is logged in
     if (!userLoading && !user) {
       navigate("/login");
       return;
@@ -36,7 +36,7 @@ const AuthorsList = () => {
     }
   }, [user, userLoading, navigate]);
 
-  // Show loading while checking authentication
+  // Showing loading while checking authentication
   if (userLoading) {
     return <div className="loading">Loading...</div>;
   }

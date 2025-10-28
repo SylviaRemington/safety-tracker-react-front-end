@@ -12,20 +12,20 @@ const StoriesList = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Function to get first two sentences as preview
+  // This function gets the first two sentences as preview.
   const getPreview = (content) => {
     if (!content) return "No content available";
     
-    // Split by sentence endings (. ! ?) and take first two
+    // Split by sentence endings (. ! ?) and takes first two
     const sentences = content.split(/[.!?]+/).filter(sentence => sentence.trim().length > 0);
     const preview = sentences.slice(0, 2).join('. ').trim();
     
-    // Add ellipsis if there are more sentences
+    // Adds ellipsis if there are more sentences
     return sentences.length > 2 ? preview + '...' : preview;
   };
 
   useEffect(() => {
-    // Check if user is logged in
+    // Checking if user is logged in
     if (!userLoading && !user) {
       navigate("/login");
       return;
@@ -51,7 +51,7 @@ const StoriesList = () => {
 
   console.log(`Stories`, stories);
 
-  // Show loading while checking authentication
+  // Showing loading while checking authentication
   if (userLoading) {
     return <div className="loading">Loading...</div>;
   }
@@ -172,5 +172,3 @@ const StoriesList = () => {
 
 export default StoriesList;
 
-// Updated src components StoriesList StoriesList.jsx 
-// StoriesList.jsx reviewed to make sure working correctly

@@ -93,8 +93,8 @@ I would like this project to serve a meaningful purpose and help survivors make 
 
 ## Attributions/Resources <br>
 **Images:**
-- **Blue watercolor background image** - https://pixabay.com/photos/watercolor-background-design-paper-795161/
-- **Pink watercolor background image** - https://www.pexels.com/photo/magenta-abstract-background-7233364/
+- **Blue watercolor background image** <br> https://pixabay.com/photos/watercolor-background-design-paper-795161/
+- **Pink watercolor background image** <br> https://www.pexels.com/photo/magenta-abstract-background-7233364/
 - **Logo image** - Wrote my ideas down for how I would like the image to look with a lady's face looking upwards hopefully with a heart around her and have the main color be purple. I chose purple due to that being the "official color" for Domestic Violence Awareness. After I wrote all this down, I asked ChatGPT to design the logo. If I had more time, I would design it myself.
 
 **Libraries/Frameworks:**
@@ -109,10 +109,8 @@ I would like this project to serve a meaningful purpose and help survivors make 
 
 <hr>
 
-<br>
-
-## Rough Drafts - screenshots of wireframes & tree set ups - My Planning Process <br>
-Database Structure / How My Data Is Organized / How it all works together ERD style/format
+## My Planning Process - screenshots of wireframes & tree set ups, etc. <br>
+**Database Structure / How My Data Is Organized / How it all works together ERD style/format**
 
 **User:** <br>
 - User ID, Username, Email, Password, Date Created <br>
@@ -149,18 +147,18 @@ Database Structure / How My Data Is Organized / How it all works together ERD st
 <img width="1225" height="988" alt="frontend 4 deep1" src="https://github.com/user-attachments/assets/88df47a5-f5d3-4cb7-8342-009444550891" />
 <img width="1185" height="422" alt="frontend 4 deep2" src="https://github.com/user-attachments/assets/69e966c3-1c1d-4a42-941c-3f68d7870035" />
 
+## Initial Excalidraw / Initial Planning
+![a Project 4 Proposal 2nd Version - Screenshot 2025-10-14 at 9 56 40 AM copy](https://github.com/user-attachments/assets/31fa5623-3809-4173-b4ef-819ce0e65d16)
 
 
 <br>
 
 <hr>
 
-<br>
-
 ## Future Enhancements / Next Steps
 - **Patterns / Graphs Functionality** **(See Stretch Goals Below)**
 - **Self Care / Calming Actions / Wellbeing Tips** - Creating a static page with different somatic tools/tips a user can do/use to calm themselves after what has happened so that they can think clearly and take more empowering steps.
-- **Comments** - The ability for users to comment on eachother's stories and leave encouraging messages.<br><br>
+- **Comments** - The ability for users to comment on eachother's stories and leave encouraging messages.<br>
 
 ## Stretch Goals 🚀
 **To Create Count Functions & Filter Functions so that these functions can calculate percentages from the Check_Ins page:** <br><br>
@@ -186,11 +184,9 @@ Day Type Count will be the main thing I want to create/track to show the overall
 - This also would work with the Day Type function
 - It would show something like the following: "This month, the percentages are as follows..." <br><br>
 
-<br>
 
 <hr>
 
-<br>
 
 ## Ahas / Additional Awareness - What I Learned
 - **Deleting A Commit** - Learned how to delete a commit via (1) Looking up the commit number in git log, (2) Making sure it was the correct commit with git checkout a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0, (3) Going back into the main branch where my repo and commit were located, (4) Doing a hard reset to completely delete the commit (since that is where all the problems were arising) with git reset --hard HEAD~1, (5) Pushing this change through via git push origin main --force. Grateful to have learned this. There is also the ability to do a "soft" reset as well. Since I am working solo on this project, I double checked everything and then proceeded. If I were in a team, my actions would have taken into account other team members and I wouldn't have done it this way. <br><br> **Where the mistake occurred & how I corrected it:** After registering the author model, I created a foreign key and migrated it without deleting the database ahead of time & that messed all the functionality up. I tried to fix it on my own; however, best scenario after attempting this for a while was to delete the foreign key commit and go back to where I was before that. That occurred on October 16th 2025, right after I registered the author model. After that, I went through postman and all functionality to make sure it was working again before I proceeded forward (thus all the notes after that to check on functionality). <br>

@@ -14,6 +14,13 @@ body {
   line-height: 1.4;
 }
 
+/* I created the purple gradient in the background of all pages by doing this:
+- background: linear-gradient(135deg, #0D0F1E, #2D1B3D)
+- #0D0F1E - dark blue-purple color
+- #2D1B3D is a dark purple color 
+- 135deg makes the gradient go diagonally
+- All of the above created the purple gradient that fills my browser, and also using for all my pages for a common theme.*/
+
 /* =================================================================================
    TEXT-RELATED STYLES - fonts, sizes, colors
    ================================================================================= */

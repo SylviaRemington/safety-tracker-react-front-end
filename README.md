@@ -7,7 +7,9 @@
 - Back End Github Repo: https://github.com/SylviaRemington/safety-tracker-django-back-end <br>
 - Front End Github Repo: https://github.com/SylviaRemington/safety-tracker-react-front-end <br>
 - Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials) <br> https://app.excalidraw.com/l/ArZSbb1GP9u/6bZiYhm3CCr <br>
-- Deployed App <br><br>
+- Deployed App <br>
+
+<hr>
 
 ## Tech Stack
 
@@ -27,6 +29,7 @@
 - Axios - HTTP client / API client
 - CSS - Styling
 
+<hr>
 
 ## Inspiration - Why I built It
 **Safety Tracker** <br>
@@ -35,7 +38,8 @@ This project is called Safety Tracker. It is designed for individuals impacted b
 As a stretch goal for this project, I'd like to create a key feature: a chart or visualization tool that reveals monthly patterns using percentages, which would enable users to better understand their experiences over time. In addition, if needed, I'd like the app to be able to generate or download a clear record (CSV file or similar) for both personal reflection or legal use (e.g., they can download a record of their experiences over a month and have a percentage of the days they experienced abuse to bring to a lawyer's office if they need to go to court to get a restraining order).
 
 I would like this project to serve a meaningful purpose and help survivors make the choice to leave a toxic situation. In addition, I would like this app to have the ability to track the situation with real-world examples and journal entries. Ultimately, I would like this app to track patterns in a personal journal format over time. I also would like this app to have features which prioritize privacy, safety, and getting to a healthier place. <br>
-<br>
+
+<hr>
 
 ## Features - What It Can Do
 
@@ -85,7 +89,7 @@ I would like this project to serve a meaningful purpose and help survivors make 
 - Only the user can see their own data.
 - Secure login system will protect the user's information.
 
-<br>
+<hr>
 
 ## Attributions/Resources <br>
 **Images:**
@@ -101,10 +105,7 @@ I would like this project to serve a meaningful purpose and help survivors make 
 **Other Resources:**
 - General Assembly Canva - review of python and django lessons
 - Udemy class - 100 Days of Code: The Complete Python Pro Bootcamp - I started taking this class to better understand Python.
-- Design Inspiration for the gradient CSS and the way the journal was set up found at: **https://codepen.io/danielhannih/pen/dyLNwjy** . However, the code was too complex and advanced currently for me, so I tried to replicate the gradient part of what they had with my knowledge of CSS.
-
-
-<br>
+- Design Inspiration for the gradient CSS and the way the journal was set up found at: **https://codepen.io/danielhannih/pen/dyLNwjy** . However, the code was too complex and advanced currently for me, so I tried to replicate the gradient part of what they had with my knowledge of CSS. <br>
 
 <hr>
 

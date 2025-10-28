@@ -176,6 +176,8 @@ I would like this project to serve a meaningful purpose and help survivors make 
 - **Self Care / Calming Actions / Wellbeing Tips** - Creating a static page with different somatic tools/tips a user can do/use to calm themselves after what has happened so that they can think clearly and take more empowering steps.
 - **Comments** - The ability for users to comment on eachother's stories and leave encouraging messages.<br>
 
+<hr>
+
 ## Stretch Goals 🚀
 **To Create Count Functions & Filter Functions so that these functions can calculate percentages from the Check_Ins page:** <br><br>
 Day Type Count will be the main thing I want to create/track to show the overall pattern of the user's daily experiences. It will be the most helpful thing for the user to understand their situation, have more awareness, and get out of denial of the situation.

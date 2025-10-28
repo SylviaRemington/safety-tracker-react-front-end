@@ -140,7 +140,16 @@ Database Structure / How My Data Is Organized / How it all works together ERD st
 
 <br>
 
-**FRONTEND TREE FILE STRUCTURE**
+## **FRONTEND TREE FILE STRUCTURE**
+- 822 directories, 7520 files --taking off node modules and the following with this command in terminal: <br> tree -I "node_modules|.git|package-lock.json|dist|build" -L 3
+<img width="1091" height="1002" alt="frontend tree" src="https://github.com/user-attachments/assets/541c23bd-4d59-412a-847f-ff0c52cc5b48" />
+
+- tree -I "node_modules|.git|package-lock.json|dist|build" -L 4
+- 24 directories, 42 files
+<img width="1225" height="988" alt="frontend 4 deep1" src="https://github.com/user-attachments/assets/88df47a5-f5d3-4cb7-8342-009444550891" />
+<img width="1185" height="422" alt="frontend 4 deep2" src="https://github.com/user-attachments/assets/69e966c3-1c1d-4a42-941c-3f68d7870035" />
+
+
 
 <br>
 

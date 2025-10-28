@@ -134,6 +134,7 @@ Database Structure / How My Data Is Organized / How it all works together ERD st
 ## **BACKEND TREE FILE STRUCTURE**
 
 <img width="701" height="1006" alt="backend file structure 1" src="https://github.com/user-attachments/assets/a6799083-319f-431b-a87f-6b15345b5ac5" />
+<img width="690" height="756" alt="backend file structure 2" src="https://github.com/user-attachments/assets/9fe3ce46-e041-47b8-9813-cdae60bcdd0d" />
 
 
 <br>

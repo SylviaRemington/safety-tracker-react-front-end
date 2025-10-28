@@ -33,7 +33,7 @@ export default [
         "warn",
         { allowConstantExport: true },
       ],
-      "react/prop-types": "off", // add this line
+      "react/prop-types": "off", 
       "react/no-unescaped-entities": "off",
       // unused variables only warn
       "no-unused-vars": "warn",

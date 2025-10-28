@@ -87,7 +87,22 @@ I would like this project to serve a meaningful purpose and help survivors make 
 
 <br>
 
-## Attributions/Resources
+## Attributions/Resources <br>
+**Images:**
+- **Blue watercolor background image** - https://pixabay.com/photos/watercolor-background-design-paper-795161/
+- **Pink watercolor background image** - https://www.pexels.com/photo/magenta-abstract-background-7233364/
+- **Logo image** - Wrote my ideas down for how I would like the image to look with a lady's face looking upwards hopefully with a heart around her and have the main color be purple. I chose purple due to that being the "official color" for Domestic Violence Awareness. After I wrote all this down, I asked ChatGPT to design the logo. If I had more time, I would design it myself.
+
+**Libraries/Frameworks:**
+- React - reactjs.org
+- Django - djangoproject.com
+- Axios - axios-http.com
+
+**Other Resources:**
+- General Assembly Canva - review of python and django lessons
+- Udemy class - 100 Days of Code: The Complete Python Pro Bootcamp - I started taking this class to better understand Python.
+- Design Inspiration for the gradient CSS and the way the journal was set up found at: **https://codepen.io/danielhannih/pen/dyLNwjy** . However, the code was too complex and advanced currently for me, so I tried to replicate the gradient part of what they had with my knowledge of CSS.
+
 
 <br>
 

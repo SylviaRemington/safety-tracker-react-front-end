@@ -1,7 +1,33 @@
 # Safety Tracker React Front End
 
+<hr>
+
 ## Logo
 <img width="611" height="572" alt="Screenshot 2025-10-18 at 4 59 50 AM" src="https://github.com/user-attachments/assets/52ff486f-75cb-4e9b-942f-fdda15bad912" />
+
+<hr>
+
+## Inspiration - Why I built It
+**Safety Tracker** <br>
+This project is called Safety Tracker. It is designed for individuals impacted by domestic abuse who want a private and secure way to document their daily experiences. The app will let users create, view, update, and delete journal entries (called "Daily Check-Ins") tied to their own account, ensuring only they can access their information. Each entry includes details such as events, categories for what occurred, and the safety level the user experienced.
+
+As a stretch goal for this project, I'd like to create a key feature: a chart or visualization tool that reveals monthly patterns using percentages, which would enable users to better understand their experiences over time. In addition, if needed, I'd like the app to be able to generate or download a clear record (CSV file or similar) for both personal reflection or legal use (e.g., they can download a record of their experiences over a month and have a percentage of the days they experienced abuse to bring to a lawyer's office if they need to go to court to get a restraining order).
+
+I would like this project to serve a meaningful purpose and help survivors make the choice to leave a toxic situation. In addition, I would like this app to have the ability to track the situation with real-world examples and journal entries. Ultimately, I would like this app to track patterns in a personal journal format over time. I also would like this app to have features which prioritize privacy, safety, and getting to a healthier place. <br>
+
+<hr>
+
+<img width="1514" height="927" alt="homepage" src="https://github.com/user-attachments/assets/12edaf34-0995-4cbf-8c33-5ca713d9cb66" />
+
+<img width="350" alt="checkin best" src="https://github.com/user-attachments/assets/842fb783-8844-400b-be8c-6fa49062b4ae" />
+<img width="335" alt="story best" src="https://github.com/user-attachments/assets/06cd5b8c-6a75-4973-8e8d-d2c2a14f4051" />
+<img width="315" alt="authors best" src="https://github.com/user-attachments/assets/702b0ea2-019f-4cf8-9a76-63b8067b898a" />
+<img width="500" alt="register best" src="https://github.com/user-attachments/assets/f413ba50-c30c-4354-9e32-ccbbdb29ac25" />
+<img width="462" alt="login best" src="https://github.com/user-attachments/assets/7775ba3f-55f0-4097-bc67-dc4f41889eb8" />
+<img width="300" alt="emergency best" src="https://github.com/user-attachments/assets/d8f4ce7d-c27b-49b7-8986-55b93cc266bf" />
+<img width="353" alt="Wellness Tips" src="https://github.com/user-attachments/assets/293ae5fe-afe3-4546-b5c6-1dc4ad3c7e9c" />
+
+<hr>
 
 ## Link to:
 - Back End Github Repo: https://github.com/SylviaRemington/safety-tracker-django-back-end <br>
@@ -29,17 +55,7 @@
 - Axios - HTTP client / API client
 - CSS - Styling
 
-<hr>
 
-## Inspiration - Why I built It
-**Safety Tracker** <br>
-This project is called Safety Tracker. It is designed for individuals impacted by domestic abuse who want a private and secure way to document their daily experiences. The app will let users create, view, update, and delete journal entries (called "Daily Check-Ins") tied to their own account, ensuring only they can access their information. Each entry includes details such as events, categories for what occurred, and the safety level the user experienced.
-
-As a stretch goal for this project, I'd like to create a key feature: a chart or visualization tool that reveals monthly patterns using percentages, which would enable users to better understand their experiences over time. In addition, if needed, I'd like the app to be able to generate or download a clear record (CSV file or similar) for both personal reflection or legal use (e.g., they can download a record of their experiences over a month and have a percentage of the days they experienced abuse to bring to a lawyer's office if they need to go to court to get a restraining order).
-
-I would like this project to serve a meaningful purpose and help survivors make the choice to leave a toxic situation. In addition, I would like this app to have the ability to track the situation with real-world examples and journal entries. Ultimately, I would like this app to track patterns in a personal journal format over time. I also would like this app to have features which prioritize privacy, safety, and getting to a healthier place. <br>
-
-<hr>
 
 ## Features - What It Can Do
 

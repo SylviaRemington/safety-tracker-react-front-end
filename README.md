@@ -45,22 +45,22 @@
 <br>
 
 ## Rough Drafts - screenshots of wireframes & tree set ups - My Planning Process <br>
-Database Structure / How My Data Is Organized / How it all works together ERD style/format (presenting ERD information in simple way)
+Database Structure / How My Data Is Organized / How it all works together ERD style/format
 
 User:
-User ID, Username, Email, Password, Date Created
+User ID, Username, Email, Password, Date Created <br>
 Connects to: Check-In (one user can have many check-ins), Story (one user can have many stories)
 
 Check-In:
-Check-In ID, User ID (connects to User), Title, Description, Day Type, Relaxed Today, Category, Reaction Level, Coping Action, Effectiveness, Date Created
+Check-In ID, User ID (connects to User), Title, Description, Day Type, Relaxed Today, Category, Reaction Level, Coping Action, Effectiveness, Date Created <br>
 Connects to: User (each check-in belongs to one user)
 
 Story:
-Story ID, User ID (connects to User), Author ID (connects to Author), Title, Content, Date Created
+Story ID, User ID (connects to User), Author ID (connects to Author), Title, Content, Date Created <br>
 Connects to: User (each story belongs to one user), Author (each story belongs to one author)
 
 Author:
-Author ID, Name
+Author ID, Name <br>
 Connects to: Story (one author can have many stories)
 
 <br>
@@ -71,7 +71,7 @@ Connects to: Story (one author can have many stories)
 
 ## Future Enhancements / Next Steps
 - **Patterns / Graphs Functionality** **(See Stretch Goals Below)**
-- **Self Care / Calming Actions / Wellbeing Tips** - Creating a static page with different somatic tools/tips a user can do/use to calm themselves after what has happened so that they can think clearly and take more empowering steps.
+- **Self Care / Calming Actions / Wellbeing Tips** - Creating a static page with different somatic tools/tips a user can do/use to calm themselves after what has happened so that they can think clearly and take more empowering steps. <br>
 
 ## Stretch Goals 🚀
 **To Create Count Functions & Filter Functions so that these functions can calculate percentages from the Check_Ins page:** <br><br>

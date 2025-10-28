@@ -55,7 +55,7 @@ I would like this project to serve a meaningful purpose and help survivors make 
 - Axios - HTTP client / API client
 - CSS - Styling
 
-
+<hr>
 
 ## Features - What It Can Do
 

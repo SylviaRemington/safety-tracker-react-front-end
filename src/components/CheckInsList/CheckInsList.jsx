@@ -127,7 +127,7 @@ const CheckInsList = () => {
           left: 0,
           right: 0,
           bottom: 0,
-          background: 'rgba(150, 206, 180, 0.75)',
+          background: 'rgba(186, 147, 255, 0.5)',
           borderRadius: '8px',
           zIndex: 1
         }}></div>
@@ -135,7 +135,7 @@ const CheckInsList = () => {
           <style>
             {`
               .search-input::placeholder {
-                color: #1a1a1a !important;
+                color: white !important;
                 font-weight: bold !important;
               }
             `}
@@ -151,7 +151,7 @@ const CheckInsList = () => {
                 flex: '1', 
                 minWidth: '200px', 
                 maxWidth: '300px', 
-                color: '#1a1a1a', 
+                color: 'white', 
                 fontWeight: 'bold'
               }}
             />
@@ -159,7 +159,7 @@ const CheckInsList = () => {
               value={dayTypeFilter}
               onChange={handleDayTypeChange}
               className="form-select"
-              style={{ minWidth: '150px', color: '#1a1a1a', fontWeight: 'bold' }}
+              style={{ minWidth: '150px', color: 'white', fontWeight: 'bold' }}
             >
               <option value="">All Day Types</option>
               <option value="Challenging">Challenging Day</option>
@@ -169,13 +169,13 @@ const CheckInsList = () => {
             <button 
               onClick={clearFilters} 
               className="form-button-cancel"
-              style={{ color: '#1a1a1a', fontWeight: 'bold' }}
+              style={{ color: 'white', fontWeight: 'bold' }}
             >
               Clear
             </button>
           </div>
           {(searchTerm || dayTypeFilter) && (
-            <p style={{ textAlign: 'center', color: '#1a1a1a', fontSize: '14px', fontWeight: 'bold' }}>
+            <p style={{ textAlign: 'center', color: 'white', fontSize: '14px', fontWeight: 'bold' }}>
               Showing {filteredCheckIns.length} of {checkIns.length} check-ins
             </p>
           )}

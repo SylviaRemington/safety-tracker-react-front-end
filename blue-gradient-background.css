@@ -1,6 +1,7 @@
-/* Blue Gradient Background CSS */
+/* Blue Gradient Background CSS - Have this separate css so that it can be reused & also so it doesn't confuse the other css & mess up other css. */
+/* I created this to be used for the future in other pages I add. */
 
-/* Main blue gradient background */
+/* main blue gradient background */
 .blue-gradient-background {
   background-image: url("https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80");
   background-size: cover;
@@ -12,7 +13,8 @@
   justify-content: center;
 }
 
-/* Glass-morphism form card */
+/* Background Filter that makes it look like frosted glass - semitransparent and blurry */
+/* In MDN under rgba colors and also backdrop-filter */
 .glass-form-card {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 12px;
@@ -24,7 +26,7 @@
   max-width: 400px;
 }
 
-/* Alternative glass card with more transparency */
+/* Same glass effect but more see-through (lighter) - alternative glass card with more transparency */
 .glass-form-card-light {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
@@ -36,7 +38,7 @@
   max-width: 400px;
 }
 
-/* Dark glass card variant */
+/* Dark glass card variation - darker and more opaque */
 .glass-form-card-dark {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
@@ -48,7 +50,7 @@
   max-width: 400px;
 }
 
-/* Form styling to match the glass effect */
+/* Making the form inputs and buttons look like they belong with the glass background */
 .glass-form {
   display: flex;
   flex-direction: column;
@@ -118,7 +120,7 @@
   border: 1px solid rgba(74, 222, 128, 0.3);
 }
 
-/* Responsive design */
+/* Responsive design - making page work with phones, tablets, etc. */
 @media (max-width: 768px) {
   .blue-gradient-background {
     padding: 10px;

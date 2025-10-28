@@ -21,7 +21,7 @@ I would like this project to serve a meaningful purpose and help survivors make 
 
 <img width="350" alt="checkin best" src="https://github.com/user-attachments/assets/842fb783-8844-400b-be8c-6fa49062b4ae" />
 <img width="335" alt="story best" src="https://github.com/user-attachments/assets/06cd5b8c-6a75-4973-8e8d-d2c2a14f4051" />
-<!-- <img width="315" alt="authors best" src="https://github.com/user-attachments/assets/702b0ea2-019f-4cf8-9a76-63b8067b898a" /> -->
+<img width="300" alt="authors best" src="https://github.com/user-attachments/assets/702b0ea2-019f-4cf8-9a76-63b8067b898a" />
 <img width="500" alt="register best" src="https://github.com/user-attachments/assets/f413ba50-c30c-4354-9e32-ccbbdb29ac25" />
 <img width="462" alt="login best" src="https://github.com/user-attachments/assets/7775ba3f-55f0-4097-bc67-dc4f41889eb8" />
 <img width="300" alt="emergency best" src="https://github.com/user-attachments/assets/d8f4ce7d-c27b-49b7-8986-55b93cc266bf" />

@@ -4,14 +4,10 @@
 <img width="611" height="572" alt="Screenshot 2025-10-18 at 4 59 50 AM" src="https://github.com/user-attachments/assets/52ff486f-75cb-4e9b-942f-fdda15bad912" />
 
 ## Link to:
-- Back End Github Repo: https://github.com/SylviaRemington/safety-tracker-django-back-end
-- View Site: Front End Repo Link - https://github.com/SylviaRemington/safety-tracker-react-front-end
-- Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials) - https://app.excalidraw.com/l/ArZSbb1GP9u/6bZiYhm3CCr
-- Deployed App
-
-## Information/Inspiration
-
-## Features
+- Back End Github Repo: https://github.com/SylviaRemington/safety-tracker-django-back-end <br>
+- View Site-Front End Github Repo Link: https://github.com/SylviaRemington/safety-tracker-react-front-end <br>
+- Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials) <br> https://app.excalidraw.com/l/ArZSbb1GP9u/6bZiYhm3CCr <br>
+- Deployed App <br><br>
 
 ## Tech Stack
 
@@ -31,9 +27,22 @@
 - Axios - HTTP client / API client
 - CSS - Styling
 
+
+## Information/Inspiration - Why I built It
+
+<br>
+
+## Features - What It Can Do
+
+<br>
+
 ## Attributions/Resources
 
-## Rough Drafts - screenshots of wireframes & tree set ups
+<br>
+
+## Rough Drafts - screenshots of wireframes & tree set ups - My Planning Process
+
+<br>
 
 ## Future Enhancements / Next Steps
 - **Patterns / Graphs Functionality** **(See Stretch Goals Below)**
@@ -63,7 +72,8 @@ Day Type Count will be the main thing I want to create/track to show the overall
 - This also would work with the Day Type function
 - It would show something like the following: "This month, the percentages are as follows..." <br><br>
 
-## Ahas / Additional Awareness
+
+## Ahas / Additional Awareness - What I Learned
 - **Deleting A Commit** - Learned how to delete a commit via (1) Looking up the commit number in git log, (2) Making sure it was the correct commit with git checkout a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0, (3) Going back into the main branch where my repo and commit were located, (4) Doing a hard reset to completely delete the commit (since that is where all the problems were arising) with git reset --hard HEAD~1, (5) Pushing this change through via git push origin main --force. Grateful to have learned this. There is also the ability to do a "soft" reset as well. Since I am working solo on this project, I double checked everything and then proceeded. If I were in a team, my actions would have taken into account other team members and I wouldn't have done it this way. <br><br> **Where the mistake occurred & how I corrected it:** After registering the author model, I created a foreign key and migrated it without deleting the database ahead of time & that messed all the functionality up. I tried to fix it on my own; however, best scenario after attempting this for a while was to delete the foreign key commit and go back to where I was before that. That occurred on October 16th 2025, right after I registered the author model. After that, I went through postman and all functionality to make sure it was working again before I proceeded forward (thus all the notes after that to check on functionality). <br>
 
 <br>

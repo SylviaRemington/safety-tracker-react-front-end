@@ -40,7 +40,32 @@
 
 <br>
 
-## Rough Drafts - screenshots of wireframes & tree set ups - My Planning Process
+<hr>
+
+<br>
+
+## Rough Drafts - screenshots of wireframes & tree set ups - My Planning Process <br>
+Database Structure / How My Data Is Organized / How it all works together ERD style/format (presenting ERD information in simple way)
+
+User:
+User ID, Username, Email, Password, Date Created
+Connects to: Check-In (one user can have many check-ins), Story (one user can have many stories)
+
+Check-In:
+Check-In ID, User ID (connects to User), Title, Description, Day Type, Relaxed Today, Category, Reaction Level, Coping Action, Effectiveness, Date Created
+Connects to: User (each check-in belongs to one user)
+
+Story:
+Story ID, User ID (connects to User), Author ID (connects to Author), Title, Content, Date Created
+Connects to: User (each story belongs to one user), Author (each story belongs to one author)
+
+Author:
+Author ID, Name
+Connects to: Story (one author can have many stories)
+
+<br>
+
+<hr>
 
 <br>
 
@@ -72,6 +97,11 @@ Day Type Count will be the main thing I want to create/track to show the overall
 - This also would work with the Day Type function
 - It would show something like the following: "This month, the percentages are as follows..." <br><br>
 
+<br>
+
+<hr>
+
+<br>
 
 ## Ahas / Additional Awareness - What I Learned
 - **Deleting A Commit** - Learned how to delete a commit via (1) Looking up the commit number in git log, (2) Making sure it was the correct commit with git checkout a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0, (3) Going back into the main branch where my repo and commit were located, (4) Doing a hard reset to completely delete the commit (since that is where all the problems were arising) with git reset --hard HEAD~1, (5) Pushing this change through via git push origin main --force. Grateful to have learned this. There is also the ability to do a "soft" reset as well. Since I am working solo on this project, I double checked everything and then proceeded. If I were in a team, my actions would have taken into account other team members and I wouldn't have done it this way. <br><br> **Where the mistake occurred & how I corrected it:** After registering the author model, I created a foreign key and migrated it without deleting the database ahead of time & that messed all the functionality up. I tried to fix it on my own; however, best scenario after attempting this for a while was to delete the foreign key commit and go back to where I was before that. That occurred on October 16th 2025, right after I registered the author model. After that, I went through postman and all functionality to make sure it was working again before I proceeded forward (thus all the notes after that to check on functionality). <br>
@@ -83,3 +113,7 @@ Day Type Count will be the main thing I want to create/track to show the overall
 <br>
 
 - **Order of Installed Apps** - Researched this and learned that the common Django best practices for INSTALLED_APPS order is: **(1)Django built-in apps** first, **(2)then third party apps** like **corsheaders** & **rest_framework**, and **(3)then custom apps** go last to avoid overriding Django's defaults.
+
+<br>
+
+<hr>

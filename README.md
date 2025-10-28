@@ -19,14 +19,14 @@
 - Python - the programming language I'm using.
 - Django - the web framework I'm using.
 - Django REST framework (DRF) - the api framework.
-- PostgresSql - the database I'm using
-- POSTMAN - for testing
+- PostgreSQL - the database I'm using
+- Postman - for testing
 - JWT authentication - for security & authentication
 
 **Frontend**
 - Javascript - Programming language I'm using.
 - React - User interface library/framework
-- React Router Dom - Navigation library
+- React Router DOM - Navigation library
 - Vite - the build tool using
 - Axios - HTTP client / API client
 - CSS - Styling

@@ -25,7 +25,7 @@ I would like this project to serve a meaningful purpose and help survivors make 
 <img width="500" alt="register best" src="https://github.com/user-attachments/assets/f413ba50-c30c-4354-9e32-ccbbdb29ac25" />
 <!-- <img width="462" alt="login best" src="https://github.com/user-attachments/assets/7775ba3f-55f0-4097-bc67-dc4f41889eb8" /> -->
 <img width="300" alt="emergency best" src="https://github.com/user-attachments/assets/d8f4ce7d-c27b-49b7-8986-55b93cc266bf" />
-<img width="353" alt="Wellness Tips" src="https://github.com/user-attachments/assets/293ae5fe-afe3-4546-b5c6-1dc4ad3c7e9c" />
+<!-- <img width="353" alt="Wellness Tips" src="https://github.com/user-attachments/assets/293ae5fe-afe3-4546-b5c6-1dc4ad3c7e9c" /> -->
 
 <hr>
 

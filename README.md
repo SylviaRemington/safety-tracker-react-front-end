@@ -28,7 +28,7 @@
 - CSS - Styling
 
 
-## Information/Inspiration - Why I built It
+## Inspiration - Why I built It
 **Safety Tracker** <br>
 This project is called Safety Tracker. It is designed for individuals impacted by domestic abuse who want a private and secure way to document their daily experiences. The app will let users create, view, update, and delete journal entries (called "Daily Check-Ins") tied to their own account, ensuring only they can access their information. Each entry includes details such as events, categories for what occurred, and the safety level the user experienced.
 
@@ -38,6 +38,52 @@ I would like this project to serve a meaningful purpose and help survivors make 
 <br>
 
 ## Features - What It Can Do
+
+**User Account Management:**
+- User can create a secure account with username and password.
+- User can log in and log out with appropriate authentication so that journal entries are private, and to ensure safety.
+- Only the user can see their personal information.
+  
+**Daily Check-Ins (Journal Entries):**
+- User can create private journal entries aka "Daily Check-Ins" about their daily experiences, so they can see patterns over time.
+- User can track what type of day they had (Challenging, Normal, or Good).
+- User can record how relaxed they felt each day.
+- User can choose categories for what happened (Physical Abuse, Verbal Abuse, Emotional Abuse, etc.).
+- Rate how intense their partner's reaction was (1-10 scale).
+- Write down what they did to cope and how well it worked.
+- The user can edit or delete their check-ins anytime.
+- The user can search through their check-ins by title or description or descriptive word.
+  
+**Story Sharing:**
+- The user can share their experiences with other users to help them feel less alone.
+- The user can read stories from other people who understand what the user is going through since they have experienced it as well.
+- Create, edit, and delete their own stories
+- View stories by different authors
+
+**Authors Page:**
+- Browse all authors who have shared stories
+- Find authors whose stories you really liked
+- Read more stories from specific authors
+- See how many stories each author has shared
+
+**Wellness Tips:** **...upcoming!...** <br>
+- Coming soon - This section will provide helpful wellness and self-care tips **...upcoming!...**
+
+**Emergency Resources:**
+- Quick access to emergency phone numbers
+- Local and online support resources
+- Safety planning information
+- Crisis hotline numbers
+  
+**Pattern Tracking:** (This is part of my next steps.) **...upcoming!...**
+- The user will be able to see percentages of their day_types over time. **...upcoming!...**
+- View patterns of their daily experiences. **...upcoming!...**
+- Track trends to better understand the user's situation. **...upcoming!...**
+  
+**Privacy & Security:**
+- All of the user's personal "Daily Check-Ins" are completely private.
+- Only the user can see their own data.
+- Secure login system will protect the user's information.
 
 <br>
 

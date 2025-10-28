@@ -131,93 +131,10 @@ Database Structure / How My Data Is Organized / How it all works together ERD st
 
 <br>
 
-**BACKEND TREE FILE STRUCTURE**
-- 16 directories, 68 files
-- (safety-tracker-django-back-end) ➜  safety-tracker-django-back-end git:(main) tree
-.
-├── LICENSE.md
-├── Pipfile
-├── Pipfile.lock
-├── README.md
-├── authentication
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── authentication.py
-│   ├── migrations
-│   │   ├── 0001_initial.py
-│   │   ├── 0002_remove_user_profile_image.py
-│   │   └── __init__.py
-│   ├── models.py
-│   ├── serializers.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── authors
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations
-│   │   ├── 0001_initial.py
-│   │   └── __init__.py
-│   ├── models.py
-│   ├── serializers
-│   │   ├── common.py
-│   │   └── populated.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── check_ins
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations
-│   │   ├── 0001_initial.py
-│   │   ├── 0002_check_in_day_type_check_in_relaxed_today.py
-│   │   └── __init__.py
-│   ├── models.py
-│   ├── serializers
-│   │   ├── common.py
-│   │   └── populated.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── comments
-│   ├── __init__.py
-│   ├── admin.py
-│   ├── apps.py
-│   ├── migrations
-│   │   ├── 0001_initial.py
-│   │   └── __init__.py
-│   ├── models.py
-│   ├── serializers
-│   │   ├── common.py
-│   │   └── populated.py
-│   ├── tests.py
-│   ├── urls.py
-│   └── views.py
-├── manage.py
-├── project_safety_tracker
-│   ├── __init__.py
-│   ├── asgi.py
-│   ├── settings.py
-│   ├── urls.py
-│   └── wsgi.py
-└── stories
-    ├── __init__.py
-    ├── admin.py
-    ├── apps.py
-    ├── migrations
-    │   ├── 0001_initial.py
-    │   ├── 0002_alter_story_author.py
-    │   └── __init__.py
-    ├── models.py
-    ├── serializers
-    │   ├── common.py
-    │   └── populated.py
-    ├── tests.py
-    ├── urls.py
-    └── views.py
+## **BACKEND TREE FILE STRUCTURE**
+
+<img width="701" height="1006" alt="backend file structure 1" src="https://github.com/user-attachments/assets/a6799083-319f-431b-a87f-6b15345b5ac5" />
+
 
 <br>
 

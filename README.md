@@ -33,7 +33,10 @@ I would like this project to serve a meaningful purpose and help survivors make 
 - Back End Github Repo: https://github.com/SylviaRemington/safety-tracker-django-back-end <br>
 - Front End Github Repo: https://github.com/SylviaRemington/safety-tracker-react-front-end <br>
 - Trello Planning Materials & Excalidraw Wireframes & Lucid ERDs (Planning Materials) <br> https://app.excalidraw.com/l/ArZSbb1GP9u/6bZiYhm3CCr <br>
-- Deployed App <br>
+- Deployed App: <br>
+  https://safety-tracker.netlify.app/ or <br>
+  https://safety-tracker.netlify.app/register or <br>
+  https://safety-tracker.netlify.app/login <br>
 
 <hr>
 
